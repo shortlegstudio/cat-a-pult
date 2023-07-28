@@ -71,11 +71,11 @@ public class GameController : MonoBehaviour
     bool needToPlayMusic = true;
     private void Update()
     {
-        if (needToPlayMusic)
-        {
-            AudioController.Current.PlayMusic();
-            needToPlayMusic = false;
-        }
+        //if (needToPlayMusic)
+        //{
+        //    AudioController.Current.PlayMusic();
+        //    needToPlayMusic = false;
+        //}
 
         GlobalSpawnQueue.SpawnQueueItems();
     }
