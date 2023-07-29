@@ -167,4 +167,9 @@ public class GameController : MonoBehaviour
         UnloadLevel();
         GameOverUi.SetActive(true);
     }
+
+    public void OpenPlantTherapySteam()
+    {
+        Application.OpenURL("https://store.steampowered.com/app/2505120/Plant_Therapy/");
+    }
 }
