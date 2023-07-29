@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour
     public float BaseJumpForce = 20000f;
     public float AdditionalJumpForcePerSecond = 10000f;
     public float XVelocityMin = 10f;
+    public float YVelocityMin = 2f;
     public GameObject NavRing;
+    public Animator AnimatorController;
 
     public GameObject CatSplosionSpatProto;
     //public PlayerInputScheme InputActions;
@@ -68,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleDeath()
     {
-        if ( GameDataHolder.Current.GameData.Health <= 0 )
+        if (GameDataHolder.Current.GameData.Health <= 0)
         {
             if (GameDataHolder.Current.GameData.IsDead)
                 return;
@@ -136,7 +138,21 @@ public class PlayerController : MonoBehaviour
     void HandleMovement()
     {
         if (Mathf.Abs(OurRb.velocity.x) < XVelocityMin)
+        {
             OurRb.velocity = new Vector2(0, OurRb.velocity.y);
+        }
+
+        if (Mathf.Abs(OurRb.velocity.x) < XVelocityMin && Mathf.Abs(OurRb.velocity.x) < YVelocityMin)
+        {
+            AnimatorController.SetBool("IsJumping", false);
+            AnimatorController.SetBool("IsFlying", false);
+            AnimatorController.SetBool("IsLanding", false);
+        }
+
+        if (OurRb.velocity.x < 0)
+            OurSprite.transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+        else if (OurRb.velocity.x > 0)
+            OurSprite.transform.rotation = Quaternion.identity;
 
         var pointerPos = Pointer.current.position.ReadValue();
         Vector3 wposition = Camera.main.ScreenToWorldPoint(pointerPos);
@@ -146,10 +162,11 @@ public class PlayerController : MonoBehaviour
         var rot = Quaternion.LookRotation(Vector3.forward, dir);
         NavRing.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.RotateTowards(NavRing.transform.up, dir, RotationSpeed * Time.deltaTime, 1));
 
-
         if (CurrentSpeed != 0)
         {
             OurRb.AddForce(NavRing.transform.up * CurrentSpeed, ForceMode2D.Impulse);
+            //AnimatorController.SetBool("IsIdle", false);
+            AnimatorController.SetBool("IsJumping", true);
             CurrentSpeed = 0;
         }
     }
