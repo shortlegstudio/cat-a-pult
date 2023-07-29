@@ -143,6 +143,11 @@ public class PlayerController : MonoBehaviour
         isOnGround = true;
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        isOnGround = true;    
+    }
+
     void HandleMovement()
     {
         if (Mathf.Abs(OurRb.velocity.x) < XVelocityMin)

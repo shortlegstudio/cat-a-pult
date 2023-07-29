@@ -187,13 +187,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1807071466}
   - component: {fileID: 5179734582057299108}
+  - component: {fileID: 1807071468}
   m_Layer: 0
   m_Name: IdleCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1807071466
 Transform:
   m_ObjectHideFlags: 0
@@ -260,6 +261,19 @@ PolygonCollider2D:
       - {x: 2.314403, y: -13.887237}
       - {x: 3.7152226, y: -13.772835}
       - {x: 5.4, y: -6.638646}
+--- !u!114 &1807071468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807071465}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c130db761fdc01a4b8ed6e49b337c7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SrcCollider: {fileID: 0}
 --- !u!1 &2091328437
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +494,7 @@ GameObject:
   - component: {fileID: 389173368139057894}
   - component: {fileID: 4817246427416643604}
   - component: {fileID: 5544124141230530035}
-  - component: {fileID: 3248255862893005632}
+  - component: {fileID: 2975371026839829209}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -524,10 +538,10 @@ MonoBehaviour:
   RotationSpeed: 4
   BaseJumpForce: 20000
   AdditionalJumpForcePerSecond: 15000
-  XVelocityMin: 20
+  XVelocityMin: 2
   YVelocityMin: 2
   NavRing: {fileID: 1437290271766720093}
-  AnimatorController: {fileID: 0}
+  AnimatorController: {fileID: 5544124141230530035}
   CatSplosionSpatProto: {fileID: 4472823966551516173, guid: b31941d5a738cb547af03e4172416630, type: 3}
   groundCollider: {fileID: 0}
   OurSprite: {fileID: 4817246427416643604}
@@ -638,8 +652,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 211.15106
+  m_UseAutoMass: 0
+  m_Mass: 200
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 10
@@ -720,8 +734,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &3248255862893005632
-BoxCollider2D:
+--- !u!60 &2975371026839829209
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -733,7 +747,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.29958963, y: -14.166328}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -743,6 +757,18 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 10.055863, y: 1.1537628}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 6.5316954, y: -6.7747455}
+      - {x: 10.2, y: -6.8}
+      - {x: 13.8, y: -4.2000003}
+      - {x: 13.014966, y: -1.665424}
+      - {x: -3.5250854, y: -6.942156}
+      - {x: -5.533539, y: -11.078136}
+      - {x: -8.607452, y: -11.840509}
+      - {x: -2.4, y: -15}
+      - {x: 0, y: -14.2}
+      - {x: 1.2944031, y: -14.378474}
+      - {x: 2.6944032, y: -14.738306}
+      - {x: 4.4, y: -14.0476265}
+      - {x: 5.2364564, y: -13.247626}
