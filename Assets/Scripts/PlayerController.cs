@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     //public PlayerInputScheme InputActions;
     //public InputActionAsset InputAsset;
 
+    public BoxCollider2D groundCollider;
+
     Rigidbody2D OurRb;
 
     internal void AddPowerUp(PowerUpKind kind, int quantity)
@@ -102,6 +104,7 @@ public class PlayerController : MonoBehaviour
     float TimeThrustBuildUpStarted = 0;
     float TimeThrustBuildUpEnded = 0;
     bool BuildThrust = false;
+    public bool isOnGround = true;
 
     public void Fire(InputAction.CallbackContext context)
     {
@@ -133,6 +136,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+    }
+
+    void OnTriggerEnter2D(Collider2D col) 
+    {
+        isOnGround = true;
     }
 
     void HandleMovement()
@@ -205,6 +213,7 @@ public class PlayerController : MonoBehaviour
     internal void InitiateThrust()
     {
         CurrentSpeed = BaseJumpForce + (AdditionalJumpForcePerSecond * (TimeThrustBuildUpEnded - TimeThrustBuildUpStarted));
+        isOnGround = false;
         ResetThrustBuildUp();
     }
 }
