@@ -59,6 +59,7 @@ public class GameController : MonoBehaviour
                 {
                     CurrentGameScene = aScene.name;
                     UnloadLevel();
+                    CurrentGameScene = aScene.name;
                     StartNewGame();
                     break;
                 }
