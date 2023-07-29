@@ -1,71 +1,62 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 [Serializable]
 public class SoundEffect
 {
     public Sounds sound;
-    public AudioClip[] clips;
+    public SoundInfo[] soundInfo;
 }
+
+[Serializable]
+public class SoundInfo
+{
+    [Range(0.0f, 1.0f)]
+    public float volume;
+    public AudioClip clip;
+}
+
 
 public class AudioController : MonoBehaviour
 {
-    private AudioSource AudioSource;
-    private AudioSource AmbientSource;
-    [ArrayElementTitle("sound")]
-    public SoundEffect[] sounds;
-    public Dictionary<Sounds, SoundEffect> soundTable;
-    public AudioClip[] MusicTracks;
-    public AudioClip ThemeTrack;
-    public AudioClip StreetScene;
-
     public static AudioController Current;
-    private AudioSource RadioPlayer;
-    private AudioSource musicPlayer;
-    private int currentTrack = -1;
+    private Bus musicBus;
+    private Bus effectsBus;
+    private Bus masterBus;
 
-    void Start()
-    {
-        Current = this;
 
-        // Create hash table of sounds
-        soundTable = new Dictionary<Sounds, SoundEffect>();
-        foreach (var se in sounds)
-        {
-            soundTable.Add(se.sound, se);
-        }
+    static Dictionary<Sounds, string> soundEvents = new Dictionary<Sounds, string>();
 
-        AudioSource = GetComponent<AudioSource>();
-        AmbientSource = this.gameObject.AddComponent<AudioSource>();
-        if (musicPlayer == null) {
-            musicPlayer = gameObject.AddComponent<AudioSource>();
-        }
-        RadioPlayer = gameObject.AddComponent<AudioSource>();
-        RadioPlayer.loop = true;
-
-        MusicVolume = GameController.TheGameData.GamePrefs.GameSettings.MusicVolume;
-        MuteAllVolume = GameController.TheGameData.GamePrefs.GameSettings.MuteAll;
-        PlayMusic();
+    void MapSoundsToEvents() {
+        soundEvents.Clear();
+        soundEvents.Add(Sounds.Countdown, "event:/Notifications/Achievement");
+        soundEvents.Add(Sounds.CountdownFinish, "event:/UI/ButtonClick");
     }
 
-    void Update()
+    void Awake()
     {
-        PlayMusic();
+        MapSoundsToEvents();
+        masterBus = RuntimeManager.GetBus("bus:/");
+        musicBus = RuntimeManager.GetBus("bus:/Music");
+        effectsBus = RuntimeManager.GetBus("bus:/Effects");
+
+        Current = this;
     }
 
     public static float MusicVolume
     {
         get
         {
-            return Current.musicPlayer.volume;
+            float v;
+            Current.musicBus.getVolume(out v);
+            return v;
         }
         set
         {
-            Current.musicPlayer.volume = value;
-            Current.RadioPlayer.volume = value;
-            GameController.TheGameController.GameData.GamePrefs.GameSettings.MusicVolume = value;
+            Current.musicBus.setVolume(value);
         }
     }
 
@@ -73,11 +64,25 @@ public class AudioController : MonoBehaviour
     {
         get
         {
-            return GameController.TheGameData.GamePrefs.GameSettings.EffectVolume;
+            float v;
+            Current.effectsBus.getVolume(out v);
+            return v;
         }
         set
         {
-            GameController.TheGameData.GamePrefs.GameSettings.EffectVolume = value;
+            Current.effectsBus.setVolume(value);
+        }
+    }
+
+    public static float OverallVolume{
+        get{
+            float v;
+            Current.masterBus.getVolume(out v);
+            return v;
+        }
+        set
+        {
+            Current.masterBus.setVolume(value);
         }
     }
 
@@ -85,143 +90,16 @@ public class AudioController : MonoBehaviour
     {
         get
         {
-            return Current.musicPlayer.mute;
+            return RuntimeManager.IsMuted;
         }
         set
         {
-            Current.musicPlayer.mute = value;
-            GameController.TheGameData.GamePrefs.GameSettings.MuteAll = value;
+            RuntimeManager.MuteAllEvents(value);
         }
-    }
-
-    public static void StopAmbientTrack()
-    {
-        Current.AmbientSource.Stop();
     }
 
     public static void PlaySound(Sounds sound)
     {
-        Debug.LogFormat("Playing Sound: {0}", sound.ToString());
-        Current.PlayRandomSound(sound);
+        FMODUnity.RuntimeManager.PlayOneShot(soundEvents[sound]);
     }
-
-    public void PlayMusic()
-    {
-        if (!musicPlayer.isPlaying)
-        {
-            currentTrack = currentTrack + 1;
-            if (currentTrack >= MusicTracks.Length)
-            {
-                currentTrack = 0;
-            }
-
-            if (currentTrack < MusicTracks.Length)
-                musicPlayer.PlayOneShot(MusicTracks[currentTrack]);
-        }
-    }
-
-    AudioClip CurrentRadioClip;
-    public void PlayOnRadio(Sounds sound)
-    {
-        if (soundTable.ContainsKey(sound))
-        {
-            var audioClips = soundTable[sound].clips;
-            var index = UnityEngine.Random.Range(0, audioClips.Length);
-            CurrentRadioClip = audioClips[index];
-            PlaySoundOnSource(RadioPlayer, CurrentRadioClip, true);
-        }
-    }
-
-    public void StopPlayingRadio()
-    {
-        RadioPlayer.Stop();
-    }
-
-    public void StopPlaying(Sounds sound)
-    {
-        if (AudioController.MuteAllVolume)
-            return;
-
-        if (soundTable.ContainsKey(sound))
-        {
-            AudioSource.Stop();
-        }
-    }
-
-    public void PlaySoundOnSource(AudioSource onAudioSource, AudioClip sound, bool seekRandomly)
-    {
-        if (AudioController.MuteAllVolume)
-            return;
-
-        onAudioSource.Stop();
-        onAudioSource.clip = sound;
-        if ( seekRandomly )
-            RadioPlayer.timeSamples = UnityEngine.Random.Range(0, sound.samples);
-        onAudioSource.Play();
-    }
-
-    public void PlayRandomSound(Sounds sound)
-    {
-        if (AudioController.MuteAllVolume)
-            return;
-
-        var position = GameObject.FindObjectOfType<Camera>().transform.position;
-        if (soundTable.ContainsKey(sound))
-        {
-            var audioClips = soundTable[sound].clips;
-            var index = UnityEngine.Random.Range(0, audioClips.Length);
-            var clip = audioClips[index];
-
-            AudioSource.PlayClipAtPoint(clip, position, AudioController.EffectVolume);
-        }
-    }
-
-    public GameObject LoopRandomSound(Sounds sound, float forHowLong)
-    {
-        if (AudioController.MuteAllVolume)
-            return null;
-
-        var position = GameObject.FindObjectOfType<Camera>().transform.position;
-        if (soundTable.ContainsKey(sound))
-        {
-            var audioClips = soundTable[sound].clips;
-            var index = UnityEngine.Random.Range(0, audioClips.Length);
-            var clip = audioClips[index];
-
-            GameObject itsController = new GameObject();
-            itsController.transform.position = position;
-            var acc = itsController.AddComponent<AudioClipController>();
-            acc.Play(clip, true, forHowLong);
-            return itsController;
-        }
-
-        return null;
-    }
-
-    public void PlayTheme()
-    {
-        if(musicPlayer == null) {
-            musicPlayer = gameObject.AddComponent<AudioSource>();
-        }
-        musicPlayer.clip = ThemeTrack;
-        musicPlayer.loop = true;
-        musicPlayer.Play();
-    }
-
-    public void StopTheme()
-    {
-        if (musicPlayer != null)
-        {
-            musicPlayer.Stop();
-        }
-    }
-
-    public void StopAllSounds()
-    {
-        var audio = FindObjectsOfType<AudioSource>();
-        foreach(var audioS in audio) {
-            audioS.Stop();
-        }
-    }
-
 }

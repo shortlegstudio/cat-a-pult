@@ -13,20 +13,20 @@ public class PlaySound : MonoBehaviour
     void Start()
     {
         if(playOnCreate && AudioController.Current != null)
-            AudioController.Current.PlayRandomSound(sound);
+            AudioController.PlaySound(sound);
     }
 
 
     void OnDestroy()
     {
         if(playOnDestroy && AudioController.Current != null)
-            AudioController.Current.PlayRandomSound(sound);
+            AudioController.PlaySound(sound);
 
     }
 
     void OnEnable()
     {
         if(playOnEnable && AudioController.Current != null)
-            AudioController.Current.PlayRandomSound(sound);
+            AudioController.PlaySound(sound);
     }
 }
