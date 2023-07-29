@@ -1,7 +1,9 @@
+using Assets.Scripts.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
@@ -56,7 +58,10 @@ public class GameController : MonoBehaviour
                 if (GameData.GamePrefs.LevelProgression.Contains(aScene.name))
                 {
                     CurrentGameScene = aScene.name;
-                    HideStartMenu();
+                    UnloadLevel();
+                    StartNewGame();
+                    //CurrentGameScene = aScene.name;
+                    //HideStartMenu();
                     break;
                 }
             }
@@ -75,13 +80,21 @@ public class GameController : MonoBehaviour
         GlobalSpawnQueue.SpawnQueueItems();
     }
 
-    public void ShowStartMenu()
+    private void UnloadLevel()
     {
         if (CurrentGameScene?.Any() == true)
             SceneManager.UnloadSceneAsync(CurrentGameScene);
         CurrentGameScene = string.Empty;
+    }
 
+
+    public void ShowStartMenu()
+    {
+        UnloadLevel();
         UiTitleScreen.SetActive(true);
+        UiOptionsScreen.SafeSetActive(false);
+        UiAboutScreen.SafeSetActive(false);
+        GameOverUi.SafeSetActive(false);
     }
 
     public void HideStartMenu()
@@ -103,6 +116,21 @@ public class GameController : MonoBehaviour
         if (CurrentGameScene?.Any() == true)
             SceneManager.UnloadSceneAsync(CurrentGameScene);
         CurrentGameScene = sceneName;
+    }
+
+    public void StartNewGame()
+    {
+        GameData.GameData.Health = GameData.NewGameData.Health;
+        GameData.GameData.MaxHeightReached = 0;
+        GameData.GameData.GameStartTime = Time.time;
+        GameData.GameData.GameEndTime = 0;
+        GameData.GameData.Achievements = new string[0];
+        GameData.GameData.GameInProgress = true;
+        LoadNextScene();
+        GameOverUi.SafeSetActive(false);
+        UiTitleScreen.SafeSetActive(false);
+        UiAboutScreen.SafeSetActive(false);
+        UiOptionsScreen.SafeSetActive(false);
     }
 
     public void LoadNextScene()
