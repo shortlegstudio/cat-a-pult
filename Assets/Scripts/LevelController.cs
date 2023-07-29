@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class LevelController : MonoBehaviour
 {
@@ -155,20 +156,12 @@ public class LevelController : MonoBehaviour
     }
     private void CheckGoalsAndProgression()
     {
-        bool gameOver = false;
-        gameOver = PlayerIsDead();
-
-        if (gameOver)
+        if (GameDataHolder.Current.GameData.IsDead)
         {
             EndGame(false);
         }
     }
 
-
-    private bool PlayerIsDead()
-    {
-        return GameDataHolder.Current.GameData.Health <= 0;
-    }
 
     public void EndGame(bool didWin)
     {

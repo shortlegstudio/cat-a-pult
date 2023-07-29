@@ -1,6 +1,8 @@
+using Assets.Scripts.Extensions;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public float AdditionalJumpForcePerSecond = 10000f;
     public float XVelocityMin = 10f;
     public GameObject NavRing;
+
+    public GameObject CatSplosionSpatProto;
     //public PlayerInputScheme InputActions;
     //public InputActionAsset InputAsset;
 
@@ -55,9 +59,28 @@ public class PlayerController : MonoBehaviour
     {
         if (GameDataHolder.Current.GameData.GameInProgress)
         {
+            HandleDeath();
             HandleThrustBuildUp();
             HandleMovement();
             HandleProgressTracking();
+        }
+    }
+
+    private void HandleDeath()
+    {
+        if ( GameDataHolder.Current.GameData.Health <= 0 )
+        {
+            if (GameDataHolder.Current.GameData.IsDead)
+                return;
+
+            if (GameDataHolder.Current.GameData.InDeathThrows)
+                return;
+
+            OurSprite.enabled = false;
+            NavRing.SafeSetActive(false);
+            OurRb.gravityScale = 0;
+            GameDataHolder.Current.GameData.InDeathThrows = true;
+            Instantiate(CatSplosionSpatProto, transform.position, transform.rotation);
         }
     }
 

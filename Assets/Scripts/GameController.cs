@@ -126,6 +126,8 @@ public class GameController : MonoBehaviour
         GameData.GameData.GameEndTime = 0;
         GameData.GameData.Achievements = new string[0];
         GameData.GameData.GameInProgress = true;
+        GameData.GameData.InDeathThrows = false;
+        GameData.GameData.IsDead = false;
         LoadNextScene();
         GameOverUi.SafeSetActive(false);
         UiTitleScreen.SafeSetActive(false);

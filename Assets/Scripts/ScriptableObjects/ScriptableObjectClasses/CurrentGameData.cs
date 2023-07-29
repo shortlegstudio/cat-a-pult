@@ -8,6 +8,8 @@ public class CurrentGameData : ScriptableObject
     public string PlayerName;
     public string[] Achievements;
     public float Health = 100;
+    public bool IsDead = false;
+    public bool InDeathThrows = false;
     public float MaxHeightReached = 0;
     public bool GameInProgress = false;
     public float GameEndTime = 0;
