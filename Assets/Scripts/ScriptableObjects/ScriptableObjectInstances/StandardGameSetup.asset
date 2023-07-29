@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: StandardGameSetup
   m_EditorClassIdentifier: 
   GamePrefs: {fileID: 11400000, guid: f46f474e4524fad4eaf50998ba7c4f8e, type: 2}
-  CurentGameData: {fileID: 11400000, guid: f807ac6358c0c9a458ae16017b28f674, type: 2}
+  GameData: {fileID: 11400000, guid: f807ac6358c0c9a458ae16017b28f674, type: 2}
+  NewGameData: {fileID: 11400000, guid: dd8603c9e135b80468e1567354d775c6, type: 2}
