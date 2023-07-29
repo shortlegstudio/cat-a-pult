@@ -13,8 +13,11 @@ public class ThrustTimer : MonoBehaviour
 
     public float lastTime;
 
+    private PlayerController player;
+
     void Start()
     {
+        player = FindObjectOfType<PlayerController>();
         LastThrustTime = Time.time;
     }
 
@@ -25,7 +28,13 @@ public class ThrustTimer : MonoBehaviour
 
     private void CheckForThrust()
     {
+        if(!player.isOnGround) {
+            LastThrustTime = Time.time;
+            return;
+        }
+
         float elapsedTime = Time.time - LastThrustTime;
+        
         if ( VisualCounter != null )
         {
             VisualCounter.text = (ThrustInterval - (int)elapsedTime).ToString();
