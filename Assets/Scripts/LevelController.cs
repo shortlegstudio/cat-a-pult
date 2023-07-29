@@ -50,7 +50,7 @@ public class LevelController : MonoBehaviour
 
     public void InitField()
     {
-        AudioController.Current.PlayMusic();
+        //AudioController.Current.PlayMusic();
         InitPlayer();
         CreateNewField();
         InitCameraFollower();
@@ -192,4 +192,8 @@ public class LevelController : MonoBehaviour
         //}
     }
 
+    internal void InitiatePlayerThrust()
+    {
+        Player.InitiateThrust();
+    }
 }
