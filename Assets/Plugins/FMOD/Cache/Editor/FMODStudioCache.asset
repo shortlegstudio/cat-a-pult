@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/Audio/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638261527233141693
+  lastModified: 638261630358044819
   FileSizes:
   - Name: 
-    Value: 976
+    Value: 1084
   Exists: 1
 --- !u!114 &-8341047536038040111
 MonoBehaviour:
@@ -74,6 +74,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 135026
+--- !u!114 &-6028924247804631059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/CollectPowerup
+  m_EditorClassIdentifier: 
+  Path: event:/CollectPowerup
+  Guid:
+    Data1: -975174115
+    Data2: 1136018857
+    Data3: 1123386021
+    Data4: 1480895501
+  Banks:
+  - {fileID: 5557667111846311139}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4130050769930699751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +127,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 1000
 --- !u!114 &-3569139505592387164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +181,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 1000
 --- !u!114 &-1401670241851998404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +200,33 @@ MonoBehaviour:
     Data2: 1140831877
     Data3: -1444235363
     Data4: 408826145
+  Banks:
+  - {fileID: 5557667111846311139}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-548543093705749755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/TitleScreen
+  m_EditorClassIdentifier: 
+  Path: event:/Music/TitleScreen
+  Guid:
+    Data1: -1437176967
+    Data2: 1109026269
+    Data3: -1581113205
+    Data4: -1030416470
   Banks:
   - {fileID: 5557667111846311139}
   IsStream: 0
@@ -204,12 +258,14 @@ MonoBehaviour:
   - {fileID: -3392410517113713995}
   - {fileID: -8341047536038040111}
   - {fileID: -3569139505592387164}
+  - {fileID: -6028924247804631059}
+  - {fileID: -548543093705749755}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5557667111846311139}
   StringsBanks:
   - {fileID: -8740300820418816065}
-  cacheTime: 638261527233141693
+  cacheTime: 638261630358044819
   cacheVersion: 131605
 --- !u!114 &5557667111846311139
 MonoBehaviour:
@@ -226,6 +282,6 @@ MonoBehaviour:
   Path: Assets/Audio/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638261527233131689
+  lastModified: 638261630358034721
   FileSizes: []
   Exists: 1
