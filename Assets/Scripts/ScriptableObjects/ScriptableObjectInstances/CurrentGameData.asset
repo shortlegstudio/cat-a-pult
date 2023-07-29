@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerName: WZK
   Achievements: []
-  Health: 100
+  Health: 1000
   MaxHeightReached: 0
   GameInProgress: 0
-  GameEndTime: 0
+  GameEndTime: 10.527058
   GameStartTime: 0
