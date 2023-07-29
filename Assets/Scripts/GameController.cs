@@ -60,8 +60,6 @@ public class GameController : MonoBehaviour
                     CurrentGameScene = aScene.name;
                     UnloadLevel();
                     StartNewGame();
-                    //CurrentGameScene = aScene.name;
-                    //HideStartMenu();
                     break;
                 }
             }
@@ -128,24 +126,24 @@ public class GameController : MonoBehaviour
         GameData.GameData.GameInProgress = true;
         GameData.GameData.InDeathThrows = false;
         GameData.GameData.IsDead = false;
-        LoadNextScene();
+        LoadCurrentScene();
         GameOverUi.SafeSetActive(false);
         UiTitleScreen.SafeSetActive(false);
         UiAboutScreen.SafeSetActive(false);
         UiOptionsScreen.SafeSetActive(false);
     }
 
-    public void LoadNextScene()
+    public void LoadCurrentScene()
     {
-        int nextSceneIndex = 0;
+        int nextSceneIndex = 1;
 
-        if (CurrentGameScene?.Any() == true)
+        if (!string.IsNullOrEmpty(CurrentGameScene))
         {
             for (int i = 0; i < GameData.GamePrefs.LevelProgression.Length; i++)
             {
                 if (GameData.GamePrefs.LevelProgression[i] == CurrentGameScene)
                 {
-                    nextSceneIndex = i + 1;
+                    nextSceneIndex = i;
                     break;
                 }
             }

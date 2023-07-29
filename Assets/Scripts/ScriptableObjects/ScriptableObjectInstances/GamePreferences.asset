@@ -18,26 +18,13 @@ MonoBehaviour:
     y: -20
     width: 856
     height: 642
-  GoopGrowthRate: 0.25
-  GoopGrowthStartDelay: 0.1
-  MovementGoopDetectionRadius: 0.5
-  GoopSpreadDetectionRadius: 2
-  ColorTeamA: {r: 0.43137255, g: 0.8392157, b: 0.47537422, a: 1}
-  ColorPlayerA: {r: 0.36039516, g: 0.4811321, b: 0.3731654, a: 1}
-  ColorTeamB: {r: 0.43137258, g: 0.5254902, b: 0.83921576, a: 1}
-  ColorPlayerB: {r: 0.32862228, g: 0.36381686, b: 0.4811321, a: 1}
-  ColorTeamC: {r: 0.7924528, g: 0.66981745, b: 0.47397646, a: 1}
-  ColorPlayerC: {r: 0.49056602, g: 0.44345203, b: 0.3674617, a: 1}
-  ColorTeamD: {r: 0.7326332, g: 0.4745098, b: 0.7921569, a: 1}
-  ColorPlayerD: {r: 0.55042994, g: 0.2742079, b: 0.6132076, a: 1}
   LevelProgression:
   - Level-1
+  - Sandbox
   GameSettings:
     MuteAll: 0
     MusicVolume: 0.5
     EffectVolume: 0.8
-  ColorAndTheme:
-    HighlightColor: {r: 0.17042479, g: 0.7490196, b: 0, a: 1}
   SeededFieldGoopPercent: 0.15
   SeededFieldPowerUpPercent: 0.03
   SeededTeamPortalPercent: 0.025
@@ -50,11 +37,10 @@ MonoBehaviour:
   - {fileID: 7814577279995954984, guid: 6a505e74883341545a48d76768cd6317, type: 3}
   SeededFieldPowerUpPrototypes: []
   SeededFieldGridBoxSize: 18
-  FinishGoalProtoType: {fileID: 3813491357236007195, guid: 60166bb7e5194bd4e98eee61eb7c6e53, type: 3}
-  TeamPortalProtoType: {fileID: 8485608378571650620, guid: 3b7f5aabb868fcc41a15d736887cbfbe, type: 3}
   PlayerStartingLocation: {x: 500, y: 0}
   StartingLevelWidth: 200
   StartingLevelHeight: 150
   CurrentLevelWidth: 856
   CurrentLevelHeight: 642
   LevelProgressionSizeIncrease: 0.2
+  YPositionToHeightConversion: 0.1

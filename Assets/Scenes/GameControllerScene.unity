@@ -132,31 +132,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3589567783804765886, guid: 4890caed18bb88740b256f5314eea928, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3589567783804765886, guid: 4890caed18bb88740b256f5314eea928, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3589567783804765886, guid: 4890caed18bb88740b256f5314eea928, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3589567783804765886, guid: 4890caed18bb88740b256f5314eea928, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 61
       objectReference: {fileID: 0}
     - target: {fileID: 3589567783804765886, guid: 4890caed18bb88740b256f5314eea928, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3589567783804765886, guid: 4890caed18bb88740b256f5314eea928, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -30.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643450645462802174, guid: 4890caed18bb88740b256f5314eea928, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -118.494995
       objectReference: {fileID: 0}
     - target: {fileID: 8068920085594133557, guid: 4890caed18bb88740b256f5314eea928, type: 3}
       propertyPath: m_Name
       value: UI-FullScreen-AboutScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068920085594133557, guid: 4890caed18bb88740b256f5314eea928, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8068920085594133558, guid: 4890caed18bb88740b256f5314eea928, type: 3}
       propertyPath: m_Pivot.x
