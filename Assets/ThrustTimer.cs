@@ -11,6 +11,8 @@ public class ThrustTimer : MonoBehaviour
     [ReadOnly]
     public float LastThrustTime = 0;
 
+    public float lastTime;
+
     void Start()
     {
         
@@ -29,11 +31,18 @@ public class ThrustTimer : MonoBehaviour
             VisualCounter.text = (ThrustInterval - (int)elapsedTime).ToString();
         }
 
+        if(lastTime != ThrustInterval - (int)elapsedTime) {
+            lastTime = ThrustInterval - (int)elapsedTime;
+            AudioController.PlaySound(Sounds.Countdown);
+        }
+
         if ( elapsedTime >= ThrustInterval )
         {
+            AudioController.PlaySound(Sounds.CountdownFinish);
             SignalForThrust();
             LastThrustTime = Time.time;
         }
+
     }
 
     private void SignalForThrust()

@@ -32,8 +32,8 @@ public class AudioController : MonoBehaviour
 
     void MapSoundsToEvents() {
         soundEvents.Clear();
-        soundEvents.Add(Sounds.Countdown, "event:/Notifications/Achievement");
-        soundEvents.Add(Sounds.CountdownFinish, "event:/UI/ButtonClick");
+        soundEvents.Add(Sounds.Countdown, "event:/Sounds/Countdown");
+        soundEvents.Add(Sounds.CountdownFinish, "event:/Sounds/Launch");
     }
 
     void Awake()
