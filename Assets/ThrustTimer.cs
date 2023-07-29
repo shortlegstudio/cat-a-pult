@@ -5,7 +5,7 @@ public class ThrustTimer : MonoBehaviour
 {
     public float ThrustInterval = 3;
 
-    [SerializeField] private TextMeshPro VisualCounter;
+    [SerializeField] private TextMeshProUGUI VisualCounter;
     public LevelController LevelController;
 
     [ReadOnly]
