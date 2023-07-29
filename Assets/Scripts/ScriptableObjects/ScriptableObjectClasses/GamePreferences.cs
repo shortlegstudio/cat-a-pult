@@ -24,6 +24,8 @@ public class GamePreferences : ScriptableObject
     public int CurrentLevelWidth = 0;
     public int CurrentLevelHeight = 0;
     public float LevelProgressionSizeIncrease = .2f;
+
+    public float YPositionToHeightConversion = .1f;
 }
 
 

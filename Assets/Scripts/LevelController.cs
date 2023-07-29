@@ -172,6 +172,11 @@ public class LevelController : MonoBehaviour
 
     public void EndGame(bool didWin)
     {
+        if (!GameDataHolder.Current.GameData.GameInProgress)
+        {
+            return;
+        }
+
         GameDataHolder.Current.GameData.GameInProgress = false;
         GameDataHolder.Current.GameData.GameEndTime = Time.time;
 
@@ -187,7 +192,7 @@ public class LevelController : MonoBehaviour
 
     private void InitPlayer()
     {
-        Player = FindObjectOfType<PlayerController>();
+        //Player = FindObjectOfType<PlayerController>();
     }
 
     private void InitCameraFollower()

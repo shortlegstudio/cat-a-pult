@@ -53,8 +53,17 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        HandleThrustBuildUp();
-        HandleMovement();
+        if (GameDataHolder.Current.GameData.GameInProgress)
+        {
+            HandleThrustBuildUp();
+            HandleMovement();
+            HandleProgressTracking();
+        }
+    }
+
+    private void HandleProgressTracking()
+    {
+        GameDataHolder.Current.GameData.MaxHeightReached = Mathf.Max(GameDataHolder.Current.GameData.MaxHeightReached, transform.position.y);
     }
 
     private void HandleThrustBuildUp()

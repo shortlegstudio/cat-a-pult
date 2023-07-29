@@ -15,7 +15,7 @@ public class ThrustTimer : MonoBehaviour
 
     void Start()
     {
-        
+        LastThrustTime = Time.time;
     }
 
     void Update()
