@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/Audio/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638262288202897393
+  lastModified: 638262313822371372
   FileSizes:
   - Name: 
-    Value: 1178
+    Value: 1218
   Exists: 1
 --- !u!114 &-8393174023880153497
 MonoBehaviour:
@@ -152,12 +152,13 @@ MonoBehaviour:
   - {fileID: 1732364836400866149}
   - {fileID: -8393174023880153497}
   - {fileID: 1032571064092464516}
+  - {fileID: 4999345348481179037}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5557667111846311139}
   StringsBanks:
   - {fileID: -8740300820418816065}
-  cacheTime: 638262288202897393
+  cacheTime: 638262313822371372
   cacheVersion: 131605
 --- !u!114 &996787013798029247
 MonoBehaviour:
@@ -240,6 +241,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1000
+--- !u!114 &4999345348481179037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Game over
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Game over
+  Guid:
+    Data1: 543305302
+    Data2: 1291472869
+    Data3: 758163841
+    Data4: -152069896
+  Banks:
+  - {fileID: 5557667111846311139}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5214
 --- !u!114 &5557667111846311139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +283,7 @@ MonoBehaviour:
   Path: Assets/Audio/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638262288202887405
+  lastModified: 638262313822361493
   FileSizes: []
   Exists: 1
 --- !u!114 &9028156608620616194

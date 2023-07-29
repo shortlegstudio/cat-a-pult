@@ -164,6 +164,7 @@ public class GameController : MonoBehaviour
 
     public void ShowGameOverUi()
     {
+        UnloadLevel();
         GameOverUi.SetActive(true);
     }
 }
