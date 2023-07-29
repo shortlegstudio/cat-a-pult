@@ -27,7 +27,7 @@ public class LevelController : MonoBehaviour
     public void QuitToMain()
     {
         PauseUi.SetActive(false);
-        GameController.TheGameController.ShowStartMenu();
+        GameController.Current.ShowStartMenu();
     }
 
     private void Start()
@@ -45,7 +45,7 @@ public class LevelController : MonoBehaviour
     public void ProgressToNextLevel()
     {
         IncreaseBoardSize();
-        GameController.TheGameController.ReloadCurrentScene();
+        GameController.Current.ReloadCurrentScene();
     }
 
     public void InitField()
@@ -80,7 +80,7 @@ public class LevelController : MonoBehaviour
 
     public static Vector3 NearestGridCenterPoint(int gridX, int gridY)
     {
-        Vector3 centerPt =  new Vector3(gridX * GamePreferences.Current.SeededFieldGridBoxSize + GamePreferences.Current.CurrentLevelBounds.xMin, gridY * GamePreferences.Current.SeededFieldGridBoxSize + GamePreferences.Current.CurrentLevelBounds.yMin, 0);
+        Vector3 centerPt = new Vector3(gridX * GamePreferences.Current.SeededFieldGridBoxSize + GamePreferences.Current.CurrentLevelBounds.xMin, gridY * GamePreferences.Current.SeededFieldGridBoxSize + GamePreferences.Current.CurrentLevelBounds.yMin, 0);
         return centerPt;
     }
 
@@ -92,7 +92,7 @@ public class LevelController : MonoBehaviour
     {
         return;
 
-        if ( GamePreferences.Current.CurrentLevelHeight == 0  || GamePreferences.Current.CurrentLevelWidth == 0 )
+        if (GamePreferences.Current.CurrentLevelHeight == 0 || GamePreferences.Current.CurrentLevelWidth == 0)
         {
             ResetGameBoardSize();
         }
@@ -117,7 +117,7 @@ public class LevelController : MonoBehaviour
         int powerUpsAdded = 0;
         int totalSeededItems = (int)(TotalFieldCells * GamePreferences.Current.SeededFieldGoopPercent);
         int totalPowerUps = (int)(totalSeededItems * GamePreferences.Current.SeededFieldPowerUpPercent);
-        int totalTeamPortals = 1+(int)(totalSeededItems * GamePreferences.Current.SeededTeamPortalPercent);
+        int totalTeamPortals = 1 + (int)(totalSeededItems * GamePreferences.Current.SeededTeamPortalPercent);
 
         int n = 0;
         while (n < totalSeededItems)
@@ -155,7 +155,34 @@ public class LevelController : MonoBehaviour
     }
     private void CheckGoalsAndProgression()
     {
-        // If all goals are complete, we're done - trigger the win.
+        bool gameOver = false;
+        gameOver = PlayerIsDead();
+
+        if (gameOver)
+        {
+            EndGame(false);
+        }
+    }
+
+
+    private bool PlayerIsDead()
+    {
+        return GameDataHolder.Current.GameData.Health <= 0;
+    }
+
+    public void EndGame(bool didWin)
+    {
+        GameDataHolder.Current.GameData.GameInProgress = false;
+        GameDataHolder.Current.GameData.GameEndTime = Time.time;
+
+        if (didWin)
+        {
+            //ShowGameWinUi();
+        }
+        else
+        {
+            GameController.Current.ShowGameOverUi();
+        }
     }
 
     private void InitPlayer()

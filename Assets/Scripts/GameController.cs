@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public GameObject UiTitleScreen;
     public GameObject UiOptionsScreen;
     public GameObject UiAboutScreen;
+    public GameObject GameOverUi;
 
     public GameDataHolder GameData;
 
@@ -18,8 +19,8 @@ public class GameController : MonoBehaviour
 
     private static GameController InnerGameController { get; set; }
 
-    public static GameDataHolder TheGameData => TheGameController.GameData;
-    public static GameController TheGameController
+    public static GameDataHolder CurrentGame => Current.GameData;
+    public static GameController Current
     {
         get
         {
@@ -71,12 +72,6 @@ public class GameController : MonoBehaviour
     bool needToPlayMusic = true;
     private void Update()
     {
-        //if (needToPlayMusic)
-        //{
-        //    AudioController.Current.PlayMusic();
-        //    needToPlayMusic = false;
-        //}
-
         GlobalSpawnQueue.SpawnQueueItems();
     }
 
@@ -133,7 +128,12 @@ public class GameController : MonoBehaviour
     public void LogGameAchievement(string achievment)
     {
         Debug.Log($"Game achievement: {achievment}.");
-        TheGameData.CurentGameData.AddAchievement(achievment);
+        CurrentGame.GameData.AddAchievement(achievment);
     }
 
+
+    public void ShowGameOverUi()
+    {
+        GameOverUi.SetActive(true);
+    }
 }
