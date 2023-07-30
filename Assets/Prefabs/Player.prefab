@@ -542,7 +542,7 @@ MonoBehaviour:
   YVelocityMin: 2
   NavRing: {fileID: 1437290271766720093}
   AnimatorController: {fileID: 5544124141230530035}
-  CatSplosionSpatProto: {fileID: 4472823966551516173, guid: b31941d5a738cb547af03e4172416630, type: 3}
+  CatSplosionSpatProto: {fileID: 4472823966551516173, guid: 2beec3158d17e92418931f9f5f07dbee, type: 3}
   groundCollider: {fileID: 0}
   OurSprite: {fileID: 4817246427416643604}
   CurrentSpeed: 0
