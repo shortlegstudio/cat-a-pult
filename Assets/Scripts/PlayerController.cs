@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public float AdditionalJumpForcePerSecond = 10000f;
     public float XVelocityMin = 10f;
     public float YVelocityMin = 2f;
+    public float XVelocityMax = 100f;
+    public float YVelocityMax = 2000f;
+
     public GameObject NavRing;
     public GameObject Arrow;
 
@@ -26,7 +29,6 @@ public class PlayerController : MonoBehaviour
     public float beatsToLand = 0.1f;
 
     public float airMovementForce = 10f;
-
     Rigidbody2D OurRb;
 
     internal void AddPowerUp(PowerUpKind kind, int quantity)
@@ -71,8 +73,15 @@ public class PlayerController : MonoBehaviour
         {
             HandleDeath();
             HandleThrustBuildUp();
-            HandleMovement();
             HandleProgressTracking();
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (GameDataHolder.Current.GameData.GameInProgress)
+        {
+            HandleMovement();
         }
     }
 
@@ -185,8 +194,6 @@ public class PlayerController : MonoBehaviour
     void HandleMovement()
     {
 
-        OurRb.AddForce(airForce * airMovementForce, ForceMode2D.Force);
-
         if (isOnGround)
         {
             AnimatorController.SetBool("IsJumping", false);
@@ -200,6 +207,13 @@ public class PlayerController : MonoBehaviour
                 OurSprite.transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
             else if (OurRb.velocity.x > 0)
                 OurSprite.transform.rotation = Quaternion.identity;
+
+            OurRb.AddForce(airForce * airMovementForce, ForceMode2D.Impulse);
+
+            OurRb.velocity = new Vector2(
+                Mathf.Clamp(OurRb.velocity.x, -XVelocityMax, XVelocityMax),
+                Mathf.Clamp(OurRb.velocity.y, -YVelocityMax, YVelocityMax)
+            );
         }
 
         var pointerPos = Pointer.current.position.ReadValue();
@@ -217,20 +231,8 @@ public class PlayerController : MonoBehaviour
             AnimatorController.SetBool("IsJumping", true);
             CurrentSpeed = 0;
         }
-    }
 
-    void OnJump(InputValue value)
-    {
-    }
 
-    void OnMove(InputValue value)
-    {
-        Debug.Log("OnMove");
-        if (!isOnGround)
-        {
-            Vector2 dir = value.Get<Vector2>();
-            OurRb.AddForce(new Vector2(dir.x * airMovementForce, 0));
-        }
     }
 
     void ResetThrustBuildUp()

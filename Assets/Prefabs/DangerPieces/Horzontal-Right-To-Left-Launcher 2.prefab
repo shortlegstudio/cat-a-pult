@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 634872854051190660}
   - component: {fileID: 634872854051190661}
   m_Layer: 0
-  m_Name: Horzontal-Right-To-Left-Launcher
+  m_Name: Horzontal-Right-To-Left-Launcher 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,9 +80,9 @@ MonoBehaviour:
   IsActive: 1
   SpawnQueue:
   - ToLaunch: {fileID: 2165821248917203425, guid: 8034ce6353083204ba3090f78f55d00f, type: 3}
-    Count: 99999999
-  - ToLaunch: {fileID: 2165821248917203425, guid: 8034ce6353083204ba3090f78f55d00f, type: 3}
-    Count: 99999999
+    Count: 1
+  - ToLaunch: {fileID: 2165821248917203425, guid: 65810558008e7964a89a8a1f1596fa11, type: 3}
+    Count: 1
   LaunchVector: {fileID: 634872854807416074}
   SpreadAngle: 0
   AutoActivateAfterDelay: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   LaunchAccel: 200
   LaunchPower: 200
   TumbleItem: 0
-  LoopsOfLaunchQueue: 1
+  LoopsOfLaunchQueue: 9000
   AutoDestroyAfterQueueExhausted: 0
   SpawnLocation: {fileID: 634872853728868144}
   RandomlySampleFromQueuePerLaunch: 0
