@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 929928797060007879}
   - component: {fileID: 6318082537581122031}
   m_Layer: 6
-  m_Name: FieldPiece-Base-RectGreen
-  m_TagString: Platform
+  m_Name: FieldPiece-Base-RectSherbert plain
+  m_TagString: Goop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 748996625
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -91800296, guid: 987e1ed48ccf2fc48b1b61e1dacd656c, type: 3}
+  m_Sprite: {fileID: 621491397, guid: 833406ce99a351148bdd1f44a5db4667, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,7 +104,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 31.5, y: 8.6}
+    oldSize: {x: 20.8, y: 11.1}
     newSize: {x: 15.5, y: 15.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -112,10 +112,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -15.75, y: 4.3}
-      - {x: -15.75, y: -4.3}
-      - {x: 15.75, y: -4.3}
-      - {x: 15.75, y: 4.3}
+    - - {x: -10.400001, y: 5.55}
+      - {x: -10.400001, y: -5.55}
+      - {x: 10.400001, y: -5.55}
+      - {x: 10.400001, y: 5.55}
 --- !u!50 &929928797060007879
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +132,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: b9e94bf476949ca4585d7422ff2f62cc, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
