@@ -11570,10 +11570,9 @@ Transform:
   - {fileID: 743072395}
   - {fileID: 644889263}
   - {fileID: 935561541}
-  - {fileID: 1720521982}
   - {fileID: 743754903}
   - {fileID: 1155182358}
-  - {fileID: 1528964672}
+  - {fileID: 812400231}
   - {fileID: 1028306310}
   - {fileID: 673946940}
   - {fileID: 1154874908}
@@ -11581,11 +11580,12 @@ Transform:
   - {fileID: 1329285603}
   - {fileID: 194834900}
   - {fileID: 1152554277}
-  - {fileID: 812400231}
+  - {fileID: 1720521982}
   - {fileID: 270105841}
   - {fileID: 2092374681}
   - {fileID: 470445421}
   - {fileID: 479792324}
+  - {fileID: 1528964672}
   - {fileID: 752354134}
   - {fileID: 2056473053}
   - {fileID: 1280936286}
@@ -11593,15 +11593,15 @@ Transform:
   - {fileID: 412733588}
   - {fileID: 1007766976}
   - {fileID: 495348590}
-  - {fileID: 1568991672}
   - {fileID: 1201436185}
   - {fileID: 1768496114}
   - {fileID: 509334322}
   - {fileID: 2054268550}
+  - {fileID: 1568991672}
   - {fileID: 750797696}
+  - {fileID: 1483234634}
   - {fileID: 1756743702}
   - {fileID: 1814237162}
-  - {fileID: 1483234634}
   - {fileID: 550425898}
   - {fileID: 1329311156}
   - {fileID: 1045907633}
@@ -11613,8 +11613,8 @@ Transform:
   - {fileID: 788506191}
   - {fileID: 1338283976}
   - {fileID: 1263250164}
-  - {fileID: 309897547}
   - {fileID: 1259322614}
+  - {fileID: 309897547}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11778,7 +11778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThrustInterval: 3
-  countdownSpeed: 1
+  countdownSpeed: 1.5
   VisualCounter: {fileID: 1143546488}
   LevelController: {fileID: 509428791}
   LastThrustTime: 0
@@ -15787,9 +15787,13 @@ MonoBehaviour:
   XVelocityMin: 20
   YVelocityMin: 2
   NavRing: {fileID: 7026060426495158458}
+  Arrow: {fileID: 0}
   AnimatorController: {fileID: 0}
   CatSplosionSpatProto: {fileID: 4472823966551516173, guid: b31941d5a738cb547af03e4172416630, type: 3}
   groundCollider: {fileID: 0}
+  beatsOnGround: 0
+  beatsToLand: 0.1
+  airMovementForce: 10
   OurSprite: {fileID: 3506508891537772275}
   CurrentSpeed: 0
   isOnGround: 1
@@ -15944,17 +15948,9 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5544124141110763996, guid: e62b6e9425a8f3c49841933886625094, type: 3}
-      propertyPath: BaseJumpForce
-      value: 30000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5544124141110763996, guid: e62b6e9425a8f3c49841933886625094, type: 3}
       propertyPath: AnimatorController
       value: 
       objectReference: {fileID: 5544124141230530035}
-    - target: {fileID: 5544124141110763996, guid: e62b6e9425a8f3c49841933886625094, type: 3}
-      propertyPath: AdditionalJumpForcePerSecond
-      value: 15000
-      objectReference: {fileID: 0}
     - target: {fileID: 5544124141110763997, guid: e62b6e9425a8f3c49841933886625094, type: 3}
       propertyPath: m_RootOrder
       value: 3
