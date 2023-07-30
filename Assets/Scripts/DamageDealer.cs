@@ -8,12 +8,16 @@ public class DamageDealer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Wall"))
         {
-            GameController.CurrentGame.GameData.Health -= 1000;
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                GameController.CurrentGame.GameData.Health -= 1000;
+            }
+
             if (DestroyOnUse)
             {
-                if ( DestroyEffect != null)
+                if (DestroyEffect != null)
                 {
                     Instantiate(DestroyEffect, transform.position, transform.rotation);
                     Destroy(gameObject);
