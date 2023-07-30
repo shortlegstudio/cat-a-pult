@@ -19,7 +19,7 @@ public class GameOverDataController : MonoBehaviour
         try
         {
             StringBuilder sb = new StringBuilder();
-            foreach (var m in GamePreferences.Current.HighScoreTable.scores.OrderByDescending(m => m.score))
+            foreach (var m in GamePreferences.Current.HighScoreTable.scores.OrderByDescending(m => m.score).Take(10))
             {
                 sb.AppendLine($"{m.playerName} ... {m.score:N0}");
             }

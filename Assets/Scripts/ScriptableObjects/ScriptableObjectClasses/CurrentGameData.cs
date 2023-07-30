@@ -15,12 +15,13 @@ public class CurrentGameData : ScriptableObject
     public bool GameInProgress = false;
     public float GameEndTime = 0;
     public float GameStartTime = 0;
-
+    public float BonusScore = 0;
     public int GetPlayerScore()
     {
-        return (int)(MaxHeightReached * GameDataHolder.Current.GamePrefs.YPositionToHeightConversion);
+        return (int)(BonusScore + (MaxHeightReached * GameDataHolder.Current.GamePrefs.YPositionToHeightConversion));
     }
 
+    public void AddBonusScore(float score) => BonusScore += score;
 
     public void AddAchievement(string named)
     {
