@@ -188,6 +188,7 @@ public class PlayerController : MonoBehaviour
         {
             //Try to stick the landing
             OurRb.velocity = new Vector2(0, 0);
+            AudioController.PlaySound(Sounds.Landing);
         }
     }
 
@@ -196,7 +197,7 @@ public class PlayerController : MonoBehaviour
         if(col.tag == "Platform")
         {
             beatsOnGround+= Time.deltaTime;
-            if(beatsOnGround >= beatsToLand) 
+            if(beatsOnGround >= beatsToLand && !isOnGround) 
             {
                 isOnGround = true;
             }
