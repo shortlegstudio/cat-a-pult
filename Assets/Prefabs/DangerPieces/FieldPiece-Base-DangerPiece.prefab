@@ -205,3 +205,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageAmt: 1000
+  DestroyOnUse: 1
+  DestroyEffect: {fileID: 4472823966551516173, guid: 163b24e60ccfddf4b890259fef5d6d2b, type: 3}
