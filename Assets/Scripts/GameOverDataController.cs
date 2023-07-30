@@ -1,6 +1,6 @@
 using Assets.Scripts.Extensions;
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using TMPro;
 using UnityEngine;
 
@@ -13,8 +13,22 @@ public class GameOverDataController : MonoBehaviour
     public void OnEnable()
     {
         NewHighScoreElement.SafeSetActive(false);
-        int heightScore = (int)(GameDataHolder.Current.GameData.MaxHeightReached * GameDataHolder.Current.GamePrefs.YPositionToHeightConversion);
+        int heightScore = GameDataHolder.Current.GameData.GetPlayerScore();
         MaxHeightLabel.text = $"Height Reached: {heightScore:N0}";
-        HighScoreList.text = $"XXX .... {heightScore}";
+
+        try
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var m in GamePreferences.Current.HighScoreTable.scores.OrderByDescending(m => m.score))
+            {
+                sb.AppendLine($"{m.playerName} ... {m.score:N0}");
+            }
+
+            HighScoreList.text = sb.ToString();
+
+        }
+        catch (System.Exception)
+        {
+        }
     }
 }

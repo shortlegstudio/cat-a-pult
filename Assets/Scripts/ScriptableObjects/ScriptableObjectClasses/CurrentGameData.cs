@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CurrentGameData", menuName = "ScriptableObjects/CurrentGameData", order = 1)]
 public class CurrentGameData : ScriptableObject
 {
+    public string InstanceId { get; set; }
     public string PlayerName;
     public string[] Achievements;
     public float Health = 100;
@@ -14,6 +15,11 @@ public class CurrentGameData : ScriptableObject
     public bool GameInProgress = false;
     public float GameEndTime = 0;
     public float GameStartTime = 0;
+
+    public int GetPlayerScore()
+    {
+        return (int)(MaxHeightReached * GameDataHolder.Current.GamePrefs.YPositionToHeightConversion);
+    }
 
 
     public void AddAchievement(string named)
