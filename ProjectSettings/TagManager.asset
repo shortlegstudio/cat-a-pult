@@ -8,6 +8,7 @@ TagManager:
   - Goop
   - PowerUp
   - LevelController
+  - Platform
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6318082537581122031}
   m_Layer: 6
   m_Name: FieldPiece-Base-Pillar
-  m_TagString: Goop
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,7 +153,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b9e94bf476949ca4585d7422ff2f62cc, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0

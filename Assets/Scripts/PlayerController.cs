@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     //public InputActionAsset InputAsset;
 
     public BoxCollider2D groundCollider;
+    public float beatsOnGround = 0;
+    public float beatsToLand = 0.1f;
 
     Rigidbody2D OurRb;
 
@@ -140,12 +142,24 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col) 
     {
-        isOnGround = true;
+        if(col.tag == "Platform")
+        {
+            //Try to stick the landing
+            OurRb.velocity = new Vector2(0, 0);
+        }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D col) 
     {
-        isOnGround = true;    
+        Debug.Log("OnTriggerStay2D");
+        if(col.tag == "Platform")
+        {
+            beatsOnGround+= Time.deltaTime;
+            if(beatsOnGround >= beatsToLand) 
+            {
+                isOnGround = true;
+            }
+        }
     }
 
     void HandleMovement()
@@ -155,7 +169,7 @@ public class PlayerController : MonoBehaviour
             OurRb.velocity = new Vector2(0, OurRb.velocity.y);
         }
 
-        if (Mathf.Abs(OurRb.velocity.x) < XVelocityMin && Mathf.Abs(OurRb.velocity.x) < YVelocityMin)
+        if (isOnGround)
         {
             AnimatorController.SetBool("IsJumping", false);
             AnimatorController.SetBool("IsFlying", false);
@@ -219,6 +233,7 @@ public class PlayerController : MonoBehaviour
     {
         CurrentSpeed = BaseJumpForce + (AdditionalJumpForcePerSecond * (TimeThrustBuildUpEnded - TimeThrustBuildUpStarted));
         isOnGround = false;
+        beatsOnGround = 0;
         ResetThrustBuildUp();
     }
 }
