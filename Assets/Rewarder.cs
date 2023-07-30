@@ -31,7 +31,7 @@ public class Rewarder : MonoBehaviour
         AudioController.PlaySound(SoundEffect);
 
         if (DamageDisplayManager.Current != null)
-            DamageDisplayManager.Current.DisplayDamageAt(inc, transform.position);
+            DamageDisplayManager.Current.DisplayDamageAt(inc, transform.position + new Vector3(0, 15, 0));
 
         if (DestroyOnUse)
         {
