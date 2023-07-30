@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public float XVelocityMin = 10f;
     public float YVelocityMin = 2f;
     public GameObject NavRing;
+    public GameObject Arrow;
+
     public Animator AnimatorController;
 
     public GameObject CatSplosionSpatProto;
@@ -22,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public BoxCollider2D groundCollider;
     public float beatsOnGround = 0;
     public float beatsToLand = 0.1f;
+
+    public float airMovementForce = 10f;
 
     Rigidbody2D OurRb;
 
@@ -100,13 +104,15 @@ public class PlayerController : MonoBehaviour
         if (BuildThrust)
             TimeThrustBuildUpEnded = Time.time;
 
-        NavRing.transform.localScale = Vector3.one * (1 + TimeThrustBuildUpEnded - TimeThrustBuildUpStarted);
+        Arrow.transform.localPosition = new Vector3(0, 12 + 5 * GetCurrentThrustMultiplier(), 0);
+        Arrow.transform.localScale = new Vector3(0.6f, 0.8f * (1 + GetCurrentThrustMultiplier()), 1);
     }
 
     float TimeThrustBuildUpStarted = 0;
     float TimeThrustBuildUpEnded = 0;
     bool BuildThrust = false;
     public bool isOnGround = true;
+    private Vector2 airForce = new Vector2(0, 0);
 
     public void Fire(InputAction.CallbackContext context)
     {
@@ -120,6 +126,21 @@ public class PlayerController : MonoBehaviour
         {
             BuildThrust = false;
         }
+    }
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        if (!isOnGround)
+        {
+            if(context.started)
+            {
+                var dir = context.ReadValue<Vector2>();
+                airForce = new Vector2(dir.x, 0);
+            }
+        } 
+        
+        if (context.canceled)
+            airForce = new Vector2(0, 0);
     }
 
     void OnReload(InputValue value)
@@ -151,7 +172,6 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col) 
     {
-        Debug.Log("OnTriggerStay2D");
         if(col.tag == "Platform")
         {
             beatsOnGround+= Time.deltaTime;
@@ -164,10 +184,8 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
-        if (Mathf.Abs(OurRb.velocity.x) < XVelocityMin)
-        {
-            OurRb.velocity = new Vector2(0, OurRb.velocity.y);
-        }
+
+        OurRb.AddForce(airForce * airMovementForce, ForceMode2D.Force);
 
         if (isOnGround)
         {
@@ -204,14 +222,11 @@ public class PlayerController : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        if (value != null)
+        Debug.Log("OnMove");
+        if (!isOnGround)
         {
-            CurrentSpeed = BaseJumpForce;
-        }
-        else
-        {
-            InputVector = Vector3.zero;
-            CurrentSpeed = 0;
+            Vector2 dir = value.Get<Vector2>();
+            OurRb.AddForce(new Vector2(dir.x * airMovementForce, 0));
         }
     }
 
@@ -229,9 +244,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private float GetCurrentThrustMultiplier()
+    {
+        return TimeThrustBuildUpEnded - TimeThrustBuildUpStarted;
+    }
+
     internal void InitiateThrust()
     {
-        CurrentSpeed = BaseJumpForce + (AdditionalJumpForcePerSecond * (TimeThrustBuildUpEnded - TimeThrustBuildUpStarted));
+        CurrentSpeed = BaseJumpForce + (AdditionalJumpForcePerSecond * GetCurrentThrustMultiplier());
         isOnGround = false;
         beatsOnGround = 0;
         ResetThrustBuildUp();

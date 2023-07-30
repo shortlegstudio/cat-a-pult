@@ -283,7 +283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2091328438
 Transform:
   m_ObjectHideFlags: 0
@@ -374,8 +374,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41228930017848084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 11.91, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 12, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7886691475329327808}
@@ -521,16 +521,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputVector: {x: 0, y: 0, z: 0}
   RotationSpeed: 4
-  BaseJumpForce: 20000
-  AdditionalJumpForcePerSecond: 15000
+  BaseJumpForce: 10000
+  AdditionalJumpForcePerSecond: 25000
   XVelocityMin: 2
   YVelocityMin: 2
   NavRing: {fileID: 1437290271766720093}
+  Arrow: {fileID: 41228930017848084}
   AnimatorController: {fileID: 5544124141230530035}
   CatSplosionSpatProto: {fileID: 4472823966551516173, guid: 2beec3158d17e92418931f9f5f07dbee, type: 3}
   groundCollider: {fileID: 0}
   beatsOnGround: 0
   beatsToLand: 0.1
+  airMovementForce: 1000
   OurSprite: {fileID: 4817246427416643604}
   CurrentSpeed: 0
   isOnGround: 1
@@ -560,7 +562,19 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5544124141110763996}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: d94229d5-343e-4bf4-878d-7586e1a30794
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -690,7 +704,7 @@ SpriteRenderer:
   m_SortingLayerID: 1395738105
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: adab07983271ba949a5e63fedfad2598, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47bf4c13cf3d2424190933df06d7888f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -738,7 +752,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 40.2, y: 30}
+    oldSize: {x: 30, y: 30}
     newSize: {x: 30, y: 30}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
