@@ -25,8 +25,13 @@ public class Rewarder : MonoBehaviour
 
     public void DoReward()
     {
-        GameController.CurrentGame.GameData.AddBonusScore(ScoreAwarded);
+
+
+        int inc = GameController.CurrentGame.GameData.BonusRewardTriggered(ScoreAwarded);
         AudioController.PlaySound(SoundEffect);
+
+        if (DamageDisplayManager.Current != null)
+            DamageDisplayManager.Current.DisplayDamageAt(inc, transform.position);
 
         if (DestroyOnUse)
         {

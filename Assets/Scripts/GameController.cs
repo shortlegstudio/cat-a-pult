@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public GameObject HighScoreEntryUi;
     public ServerComs ServerCommunications;
     public GameDataHolder GameData;
+    public DamageDisplayManager DamageDisplayManager;
 
     [ReadOnly]
     [Tooltip("The current scene/leel being played.")]
@@ -124,14 +125,9 @@ public class GameController : MonoBehaviour
         if (string.IsNullOrEmpty(GameData.GameData.InstanceId))
             GameData.GameData.InstanceId = Guid.NewGuid().ToString();
 
-        GameData.GameData.Health = GameData.NewGameData.Health;
-        GameData.GameData.MaxHeightReached = 0;
+        GameData.GameData.Clear();
         GameData.GameData.GameStartTime = Time.time;
-        GameData.GameData.GameEndTime = 0;
-        GameData.GameData.Achievements = new string[0];
-        GameData.GameData.GameInProgress = true;
-        GameData.GameData.InDeathThrows = false;
-        GameData.GameData.IsDead = false;
+
         LoadCurrentScene();
         GameOverUi.SafeSetActive(false);
         HighScoreEntryUi.SafeSetActive(false);
