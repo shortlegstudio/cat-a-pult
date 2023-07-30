@@ -10,6 +10,7 @@ TagManager:
   - LevelController
   - Platform
   - Bouncy
+  - Wall
   layers:
   - Default
   - TransparentFX
