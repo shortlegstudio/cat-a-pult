@@ -601,6 +601,7 @@ MonoBehaviour:
   YVelocityMax: 2000
   NavRing: {fileID: 1437290271766720093}
   Arrow: {fileID: 41228930017848084}
+  JumpEffect: {fileID: 7714636416865799914, guid: 1d35bb79584859e47bea1c1e31fd572c, type: 3}
   AnimatorController: {fileID: 5544124141230530035}
   CatSplosionSpatProto: {fileID: 4472823966551516173, guid: 2beec3158d17e92418931f9f5f07dbee, type: 3}
   groundCollider: {fileID: 0}

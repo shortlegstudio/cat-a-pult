@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject NavRing;
     public GameObject Arrow;
+    public GameObject JumpEffect;
 
     public Animator AnimatorController;
 
@@ -259,6 +260,7 @@ public class PlayerController : MonoBehaviour
         CurrentSpeed = BaseJumpForce + (AdditionalJumpForcePerSecond * GetCurrentThrustMultiplier());
         isOnGround = false;
         beatsOnGround = 0;
+        Instantiate(JumpEffect, transform.position, transform.rotation);
         ResetThrustBuildUp();
     }
 }
