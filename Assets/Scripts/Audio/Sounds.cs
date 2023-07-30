@@ -6,6 +6,9 @@ using UnityEngine;
 [Serializable]
 public enum Sounds {
     Countdown,
-    CountdownFinish
+    CountdownFinish,
+    Landing,
+    ClickForward,
+    ClickBack
 
 }

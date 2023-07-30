@@ -205,6 +205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreAwarded: 20
-  VisualEffect: {fileID: 4472823966551516173, guid: 9e4f0e3c7b8b8094bb12bb320063cdb8, type: 3}
+  VisualEffect: {fileID: 4723840983501665769, guid: fe4d7b268e249d14e82d2ac1e0a72c07, type: 3}
   DestroyOnUse: 1
   SoundEffect: 0

@@ -45,8 +45,45 @@ MonoBehaviour:
   LevelProgressionSizeIncrease: 0.2
   YPositionToHeightConversion: 0.1
   HighScoreTable:
-    scores: []
+    scores:
+    - playerId: 8b6fa8e2-d2a9-402c-bb89-e781d420a9bb
+      playerName: JPS
+      score: 504
+    - playerId: a7da2626-bb7b-4990-91ea-83800a4018cc
+      playerName: DRJ
+      score: 203
+    - playerId: 8b6fa8e2-d2a9-402c-bb89-e781d420a9bb
+      playerName: JPS
+      score: 154
+    - playerId: 6dddd695-4cae-4743-b784-0ccefbbd37be
+      playerName: JPP
+      score: 82
+    - playerId: 0e8b8cff-b1dc-43f5-bc8a-6883323c4be6
+      playerName: cic
+      score: 74
+    - playerId: aa94ba1f-870b-46c4-bf23-dafb49eb91cb
+      playerName: ROX
+      score: 67
+    - playerId: aa94ba1f-870b-46c4-bf23-dafb49eb91cb
+      playerName: NAT
+      score: 61
+    - playerId: 453fc082-59b7-4090-82b7-7799b63d8f81
+      playerName: JPP
+      score: 57
+    - playerId: 4cbad5ce-530d-4f33-a134-0ded74bd7710
+      playerName: LOG
+      score: 54
+    - playerId: a7da2626-bb7b-4990-91ea-83800a4018cc
+      playerName: JJJ
+      score: 48
   UseServerForScores: 1
   DeployMode: 1
   ProdServerUrl: https://slscatapult.azurewebsites.net/highscore/
   DevServerUrl: http://localhost:5096/highscore/
+  BaseBonusModifier: 2
+  BonusMultiplierWindowLength: 7
+  ChainedBonus: 0.1
+  ColorAndTheme:
+    HighlightColor: {r: 152, g: 255, b: 0, a: 1}
+    HealthChangeMarkerDamageColor: {r: 152, g: 255, b: 0, a: 1}
+    HealthChangeMarkerHealColor: {r: 0.5312274, g: 0.7490196, b: 0, a: 1}
