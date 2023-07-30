@@ -338,7 +338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2091328438
 Transform:
   m_ObjectHideFlags: 0
@@ -347,7 +347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091328437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.99, y: -0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -603,10 +603,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputVector: {x: 0, y: 0, z: 0}
   RotationSpeed: 4
-  BaseJumpForce: 15000
-  AdditionalJumpForcePerSecond: 20000
+  BaseJumpForce: 30000
+  AdditionalJumpForcePerSecond: 17500
   XVelocityMin: 2
   YVelocityMin: 2
+  XVelocityMax: 125
+  YVelocityMax: 2000
   NavRing: {fileID: 1437290271766720093}
   Arrow: {fileID: 41228930017848084}
   AnimatorController: {fileID: 5544124141230530035}
@@ -614,7 +616,7 @@ MonoBehaviour:
   groundCollider: {fileID: 0}
   beatsOnGround: 0
   beatsToLand: 0.15
-  airMovementForce: 2000
+  airMovementForce: 1250
   OurSprite: {fileID: 4817246427416643604}
   CurrentSpeed: 0
   isOnGround: 1
@@ -737,9 +739,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 200
-  m_LinearDrag: 0.6
+  m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 6
+  m_GravityScale: 24
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
