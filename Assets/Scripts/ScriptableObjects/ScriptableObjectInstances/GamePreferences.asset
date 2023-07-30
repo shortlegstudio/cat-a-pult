@@ -46,7 +46,7 @@ MonoBehaviour:
   YPositionToHeightConversion: 0.1
   HighScoreTable:
     scores: []
-  UseServerForScores: 0
-  DeployMode: 0
+  UseServerForScores: 1
+  DeployMode: 1
   ProdServerUrl: https://slscatapult.azurewebsites.net/highscore/
   DevServerUrl: http://localhost:5096/highscore/
