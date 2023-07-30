@@ -7,6 +7,8 @@ using UnityEngine;
 public enum Sounds {
     Countdown,
     CountdownFinish,
-    Landing
+    Landing,
+    ClickForward,
+    ClickBack
 
 }

@@ -39,6 +39,8 @@ public class AudioController : MonoBehaviour
         soundEvents.Add(Sounds.Countdown, "event:/Sounds/Countdown");
         soundEvents.Add(Sounds.CountdownFinish, "event:/Sounds/Launch");
         soundEvents.Add(Sounds.Landing, "event:/Sounds/Landing");
+        soundEvents.Add(Sounds.ClickForward, "event:/UI/ClickForward");
+        soundEvents.Add(Sounds.ClickBack, "event:/UI/ClickBack");
     }
 
     void Awake()
@@ -51,6 +53,16 @@ public class AudioController : MonoBehaviour
         effectsBus.setVolume(EffectVolume);
 
         Current = this;
+    }
+
+    public void PlayClick()
+    {
+        PlaySound(Sounds.ClickForward);
+    }
+
+    public void PlayClickBack()
+    {
+        PlaySound(Sounds.ClickBack);
     }
 
     public static void PlaySound(Sounds sound)
