@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 929928797060007879}
   - component: {fileID: 6318082537581122031}
   m_Layer: 6
-  m_Name: FieldPiece-Base-Lime green blob 2
-  m_TagString: Platform
+  m_Name: FieldPiece-Base-BlobTurq
+  m_TagString: Bouncy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 748996625
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -529333834, guid: 20979c42864c04644b943a01375145f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02f73a7a785b85f4b9440f4011fdf1ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,7 +104,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 29.4, y: 21.8}
+    oldSize: {x: 43.7, y: 27.7}
     newSize: {x: 15.5, y: 15.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -171,7 +171,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: b9e94bf476949ca4585d7422ff2f62cc, type: 2}
+  m_Material: {fileID: 6200000, guid: aa1ee17ae572d1c41a77b8725825ad24, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
