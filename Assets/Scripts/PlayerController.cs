@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour
     public float airMovementForce = 10f;
     Rigidbody2D OurRb;
 
+    public FMODUnity.StudioEventEmitter powerupSound;
+    public float ThrustBuildupPitchFeedback = 1.5f;
+
     internal void AddPowerUp(PowerUpKind kind, int quantity)
     {
     }
@@ -68,6 +71,7 @@ public class PlayerController : MonoBehaviour
             useLayerMask = true,
             useTriggers = true
         };
+        powerupSound.Play();
     }
     void Update()
     {
@@ -113,7 +117,11 @@ public class PlayerController : MonoBehaviour
     private void HandleThrustBuildUp()
     {
         if (BuildThrust)
+        {
             TimeThrustBuildUpEnded = Time.time;
+            powerupSound.SetParameter("Power", GetCurrentThrustMultiplier() * ThrustBuildupPitchFeedback);
+        }
+
 
         Arrow.transform.localPosition = new Vector3(0, 12 + 5 * GetCurrentThrustMultiplier(), 0);
         Arrow.transform.localScale = new Vector3(0.6f, 0.8f * (1 + GetCurrentThrustMultiplier()), 1);
@@ -201,6 +209,7 @@ public class PlayerController : MonoBehaviour
             {
                 isOnGround = true;
                 ResetThrustBuildUp();
+                powerupSound.Play();
             }
         }
     }
@@ -270,6 +279,7 @@ public class PlayerController : MonoBehaviour
 
     internal void InitiateThrust()
     {
+        powerupSound.Stop();
         CurrentSpeed = BaseJumpForce + (AdditionalJumpForcePerSecond * GetCurrentThrustMultiplier());
         isOnGround = false;
         beatsOnGround = 0;

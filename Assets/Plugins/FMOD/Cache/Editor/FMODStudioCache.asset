@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/Audio/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638263231086448787
+  lastModified: 638263290154743157
   FileSizes:
   - Name: 
-    Value: 1382
+    Value: 1476
   Exists: 1
 --- !u!114 &-8393174023880153497
 MonoBehaviour:
@@ -128,6 +128,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2200
+--- !u!114 &-2695081652820505100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JumpPower/Power
+  m_EditorClassIdentifier: 
+  Name: Power
+  StudioPath: 
+  Min: 0
+  Max: 10
+  Default: 0
+  ID:
+    data1: 37309886
+    data2: 2583256928
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-1073650588858222099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,12 +235,13 @@ MonoBehaviour:
   - {fileID: 184416819257564824}
   - {fileID: -1073650588858222099}
   - {fileID: -5333578588334628093}
+  - {fileID: 1371651587306828397}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5557667111846311139}
   StringsBanks:
   - {fileID: -8740300820418816065}
-  cacheTime: 638263231086448787
+  cacheTime: 638263290154743157
   cacheVersion: 131605
 --- !u!114 &184416819257564824
 MonoBehaviour:
@@ -299,6 +324,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2178
+--- !u!114 &1371651587306828397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sounds/JumpPower
+  m_EditorClassIdentifier: 
+  Path: event:/Sounds/JumpPower
+  Guid:
+    Data1: 1737969101
+    Data2: 1210205060
+    Data3: 135690640
+    Data4: 1801660942
+  Banks:
+  - {fileID: 5557667111846311139}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -2695081652820505100}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 32724
 --- !u!114 &1732364836400866149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +448,7 @@ MonoBehaviour:
   Path: Assets/Audio/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638263231086433726
+  lastModified: 638263290154728092
   FileSizes: []
   Exists: 1
 --- !u!114 &9028156608620616194
