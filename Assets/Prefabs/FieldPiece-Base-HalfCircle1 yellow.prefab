@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3177508871039377943, guid: 8b9f81d396422b541a8b69d87b2d83bc, type: 3}
       propertyPath: m_Name
-      value: FieldPiece-Base-HalfCircle1
+      value: FieldPiece-Base-HalfCircle1 yellow
       objectReference: {fileID: 0}
     - target: {fileID: 3401111965986700754, guid: 8b9f81d396422b541a8b69d87b2d83bc, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
