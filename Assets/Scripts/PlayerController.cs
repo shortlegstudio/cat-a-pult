@@ -200,6 +200,7 @@ public class PlayerController : MonoBehaviour
             if(beatsOnGround >= beatsToLand && !isOnGround) 
             {
                 isOnGround = true;
+                ResetThrustBuildUp();
             }
         }
     }
