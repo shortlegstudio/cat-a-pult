@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public GameObject NavRing;
     public GameObject Arrow;
     public GameObject JumpEffect;
+    public GameObject BoingEffect;
 
     public Animator AnimatorController;
 
@@ -171,6 +172,16 @@ public class PlayerController : MonoBehaviour
     {
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "Bouncy")
+        {
+            var contact = col.GetContact(0);
+            
+            Instantiate(BoingEffect, new Vector3(contact.point.x, contact.point.y, 0), transform.rotation);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D col) 
     {
         if(col.tag == "Platform")
@@ -260,7 +271,7 @@ public class PlayerController : MonoBehaviour
         CurrentSpeed = BaseJumpForce + (AdditionalJumpForcePerSecond * GetCurrentThrustMultiplier());
         isOnGround = false;
         beatsOnGround = 0;
-        Instantiate(JumpEffect, transform.position, transform.rotation);
+        Instantiate(JumpEffect, transform.position + new Vector3(0, -11, 0), transform.rotation);
         ResetThrustBuildUp();
     }
 }
