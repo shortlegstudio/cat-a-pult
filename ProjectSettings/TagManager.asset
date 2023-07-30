@@ -9,6 +9,7 @@ TagManager:
   - PowerUp
   - LevelController
   - Platform
+  - Bouncy
   layers:
   - Default
   - TransparentFX

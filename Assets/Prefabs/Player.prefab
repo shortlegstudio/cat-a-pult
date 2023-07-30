@@ -331,7 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2091328438}
   - component: {fileID: 2091328439}
-  - component: {fileID: 7286500348915114497}
+  - component: {fileID: 7845971711461678101}
   m_Layer: 0
   m_Name: FlyingCollider
   m_TagString: Untagged
@@ -404,8 +404,8 @@ PolygonCollider2D:
       - {x: 9.5492325, y: -7.627245}
       - {x: 13.42118, y: -9.091768}
       - {x: 16.204992, y: -9.274419}
---- !u!61 &7286500348915114497
-BoxCollider2D:
+--- !u!70 &7845971711461678101
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -417,19 +417,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5.957199, y: -4.3118896}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 22.89981, y: 9.623779}
-  m_EdgeRadius: 0
+  m_Offset: {x: 7.0068173, y: -4.198439}
+  m_Size: {x: 23.591463, y: 9.804883}
+  m_Direction: 1
 --- !u!1 &41228930017848084
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +778,7 @@ SpriteRenderer:
   m_SortingLayerID: 1395738105
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 47bf4c13cf3d2424190933df06d7888f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: adab07983271ba949a5e63fedfad2598, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -836,7 +826,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 30, y: 30}
+    oldSize: {x: 40.2, y: 30}
     newSize: {x: 30, y: 30}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -877,7 +867,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 30, y: 30}
+    oldSize: {x: 40.2, y: 30}
     newSize: {x: 30, y: 30}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
