@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 3401111965986700754}
   - component: {fileID: 929928797060007879}
   - component: {fileID: 6318082537581122031}
-  - component: {fileID: 548790828085726932}
   m_Layer: 6
-  m_Name: FieldPiece-Base-DangerPiece
-  m_TagString: Goop
+  m_Name: FieldPiece-Base-BlobLight Blue
+  m_TagString: Bouncy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 748996625
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1568857977, guid: d612864466586ba4085e512bb197c836, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c4d8256431808a444874a5729269a8bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,7 +104,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 13, y: 25.2}
+    oldSize: {x: 4.37, y: 2.77}
     newSize: {x: 15.5, y: 15.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -113,48 +112,49 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.7, y: -2.6000001}
-      - {x: 3.4, y: -1.4}
-      - {x: 4.1, y: -0.7}
-      - {x: 6.4, y: -0.2}
-      - {x: 6.5, y: -0.1}
-      - {x: 6.5, y: 0.6}
-      - {x: 6.3, y: 0.7}
-      - {x: 3.4, y: 1.3000001}
-      - {x: 2.7, y: 1.7}
-      - {x: 2, y: 3.1000001}
-      - {x: 1.6, y: 5.6}
-      - {x: 0.90000004, y: 9.6}
-      - {x: 0.5, y: 12.3}
-      - {x: 0.3, y: 12.6}
-      - {x: -0.3, y: 12.6}
-      - {x: -0.5, y: 12.3}
-      - {x: -0.5, y: 11.6}
-      - {x: -0.6, y: 9.900001}
-      - {x: -0.8, y: 7.5}
-      - {x: -1.1, y: 5.6}
-      - {x: -1.4, y: 4.5}
-      - {x: -2.4, y: 2}
-      - {x: -3.1000001, y: 1.1}
-      - {x: -4.7000003, y: 0.5}
-      - {x: -6.4, y: 0.4}
-      - {x: -6.5, y: 0.3}
-      - {x: -6.5, y: -0.3}
-      - {x: -6.2000003, y: -0.5}
-      - {x: -4.9, y: -0.8}
-      - {x: -3.7, y: -2.3}
-      - {x: -2.7, y: -4.3}
-      - {x: -2.1000001, y: -6}
-      - {x: -1.7, y: -7.8}
-      - {x: -1.4, y: -8.900001}
-      - {x: -1.2, y: -10.6}
-      - {x: -1.1, y: -11.7}
-      - {x: -1, y: -12.400001}
-      - {x: -0.8, y: -12.6}
-      - {x: -0.3, y: -12.6}
-      - {x: -0.1, y: -12.5}
-      - {x: 1.2, y: -8}
-      - {x: 1.7, y: -6.3}
+    - - {x: 13, y: -8.95}
+      - {x: 14.2, y: -7.35}
+      - {x: 14.7, y: -6.35}
+      - {x: 14.7, y: -0.05}
+      - {x: 14.3, y: 2.8500001}
+      - {x: 14, y: 4.65}
+      - {x: 13.8, y: 5.35}
+      - {x: 13.5, y: 6.25}
+      - {x: 12.8, y: 7.75}
+      - {x: 12.3, y: 8.45}
+      - {x: 11, y: 9.650001}
+      - {x: 10.5, y: 10.05}
+      - {x: 9, y: 10.75}
+      - {x: 8.8, y: 10.85}
+      - {x: 5, y: 10.85}
+      - {x: 4.4, y: 10.75}
+      - {x: 2.9, y: 10.35}
+      - {x: 1, y: 9.75}
+      - {x: -1.6, y: 8.85}
+      - {x: -2.4, y: 8.650001}
+      - {x: -3, y: 8.45}
+      - {x: -7, y: 7.05}
+      - {x: -9.1, y: 6.25}
+      - {x: -12.2, y: 4.75}
+      - {x: -13, y: 4.15}
+      - {x: -13.8, y: 3.3500001}
+      - {x: -14.5, y: 2.25}
+      - {x: -14.7, y: 1.0500001}
+      - {x: -14.7, y: -2.45}
+      - {x: -14.400001, y: -4.85}
+      - {x: -13.5, y: -6.75}
+      - {x: -13.3, y: -7.05}
+      - {x: -12, y: -8.25}
+      - {x: -10.8, y: -8.75}
+      - {x: -9.7, y: -9.05}
+      - {x: -9, y: -9.25}
+      - {x: -5.4, y: -10.150001}
+      - {x: -1, y: -10.650001}
+      - {x: 0.8, y: -10.85}
+      - {x: 9.3, y: -10.85}
+      - {x: 9.8, y: -10.75}
+      - {x: 11.400001, y: -10.25}
+      - {x: 11.900001, y: -9.95}
 --- !u!50 &929928797060007879
 Rigidbody2D:
   serializedVersion: 4
@@ -171,7 +171,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: aa1ee17ae572d1c41a77b8725825ad24, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3177508871039377943}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46bfe7e9d7972b349acd6e13d81b1584, type: 3}
   m_Name: 
@@ -192,18 +192,3 @@ MonoBehaviour:
   RotationSpeed: 4
   RotationAxis: 2
   RotateWrtVelocity: 0
---- !u!114 &548790828085726932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3177508871039377943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fe4a9bb715ba444b95634685a12932, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DamageAmt: 1000
-  DestroyOnUse: 1
-  DestroyEffect: {fileID: 4472823966551516173, guid: 163b24e60ccfddf4b890259fef5d6d2b, type: 3}

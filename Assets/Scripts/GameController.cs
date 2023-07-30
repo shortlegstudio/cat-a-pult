@@ -1,9 +1,7 @@
 using Assets.Scripts.Extensions;
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
@@ -12,7 +10,9 @@ public class GameController : MonoBehaviour
     public GameObject UiOptionsScreen;
     public GameObject UiAboutScreen;
     public GameObject GameOverUi;
-
+    public GameObject InGameUi;
+    public GameObject HighScoreEntryUi;
+    public ServerComs ServerCommunications;
     public GameDataHolder GameData;
 
     [ReadOnly]
@@ -94,6 +94,8 @@ public class GameController : MonoBehaviour
         UiOptionsScreen.SafeSetActive(false);
         UiAboutScreen.SafeSetActive(false);
         GameOverUi.SafeSetActive(false);
+        HighScoreEntryUi.SafeSetActive(false);
+        InGameUi.SafeSetActive(false);
     }
 
     public void HideStartMenu()
@@ -119,6 +121,9 @@ public class GameController : MonoBehaviour
 
     public void StartNewGame()
     {
+        if (string.IsNullOrEmpty(GameData.GameData.InstanceId))
+            GameData.GameData.InstanceId = Guid.NewGuid().ToString();
+
         GameData.GameData.Health = GameData.NewGameData.Health;
         GameData.GameData.MaxHeightReached = 0;
         GameData.GameData.GameStartTime = Time.time;
@@ -129,9 +134,21 @@ public class GameController : MonoBehaviour
         GameData.GameData.IsDead = false;
         LoadCurrentScene();
         GameOverUi.SafeSetActive(false);
+        HighScoreEntryUi.SafeSetActive(false);
         UiTitleScreen.SafeSetActive(false);
         UiAboutScreen.SafeSetActive(false);
         UiOptionsScreen.SafeSetActive(false);
+        InGameUi.SafeSetActive(false);
+    }
+
+    public void ShowInGameUi()
+    {
+        InGameUi.SafeSetActive(true);
+    }
+
+    public void HideInGameUi()
+    {
+        InGameUi.SafeSetActive(false);
     }
 
     public void LoadCurrentScene()
@@ -163,8 +180,33 @@ public class GameController : MonoBehaviour
 
     public void ShowGameOverUi()
     {
+        HighScoreEntryUi.SafeSetActive(false);
+        GameOverUi.SafeSetActive(true);
+        InGameUi.SafeSetActive(false);
+    }
+
+    public void InitiateGameOver()
+    {
         UnloadLevel();
-        GameOverUi.SetActive(true);
+        InGameUi.SafeSetActive(false);
+
+        int gameScore = GameDataHolder.Current.GameData.GetPlayerScore();
+
+        if (GameDataHolder.Current.GamePrefs.HighScoreTable.scores.Count < 10 || GameDataHolder.Current.GamePrefs.HighScoreTable.scores.Any(m => m.score < gameScore))
+        {
+            HighScoreEntryUi.SetActive(true);
+        }
+        else
+        {
+            ServerComs.Current.AddGameScore(new GameScore
+            {
+                playerId = GameData.GameData.InstanceId,
+                playerName = "___",
+                score = gameScore
+            });
+
+            ShowGameOverUi();
+        }
     }
 
     public void OpenPlantTherapySteam()

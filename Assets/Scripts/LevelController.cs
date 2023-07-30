@@ -34,6 +34,8 @@ public class LevelController : MonoBehaviour
     private void Start()
     {
         GlobalSpawnQueue.DefaultParentObject = LevelSpawnItemParent != null ? LevelSpawnItemParent : gameObject;
+        ServerComs.Current.GetHighScores();
+        GameController.Current.ShowInGameUi();
         InitField();
     }
 
@@ -156,6 +158,11 @@ public class LevelController : MonoBehaviour
     }
     private void CheckGoalsAndProgression()
     {
+        if (GameDataHolder.Current.GameData.InDeathThrows)
+        {
+            ServerComs.Current.GetHighScores();
+        }
+
         if (GameDataHolder.Current.GameData.IsDead)
         {
             EndGame(false);
@@ -179,7 +186,7 @@ public class LevelController : MonoBehaviour
         }
         else
         {
-            GameController.Current.ShowGameOverUi();
+            GameController.Current.InitiateGameOver();
         }
     }
 
