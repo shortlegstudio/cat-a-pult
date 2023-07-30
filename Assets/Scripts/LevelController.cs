@@ -35,6 +35,7 @@ public class LevelController : MonoBehaviour
     {
         GlobalSpawnQueue.DefaultParentObject = LevelSpawnItemParent != null ? LevelSpawnItemParent : gameObject;
         ServerComs.Current.GetHighScores();
+        GameController.Current.ShowInGameUi();
         InitField();
     }
 

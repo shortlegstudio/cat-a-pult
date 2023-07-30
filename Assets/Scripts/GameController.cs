@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public GameObject UiOptionsScreen;
     public GameObject UiAboutScreen;
     public GameObject GameOverUi;
+    public GameObject InGameUi;
     public GameObject HighScoreEntryUi;
     public ServerComs ServerCommunications;
     public GameDataHolder GameData;
@@ -94,6 +95,7 @@ public class GameController : MonoBehaviour
         UiAboutScreen.SafeSetActive(false);
         GameOverUi.SafeSetActive(false);
         HighScoreEntryUi.SafeSetActive(false);
+        InGameUi.SafeSetActive(false);
     }
 
     public void HideStartMenu()
@@ -136,6 +138,17 @@ public class GameController : MonoBehaviour
         UiTitleScreen.SafeSetActive(false);
         UiAboutScreen.SafeSetActive(false);
         UiOptionsScreen.SafeSetActive(false);
+        InGameUi.SafeSetActive(false);
+    }
+
+    public void ShowInGameUi()
+    {
+        InGameUi.SafeSetActive(true);
+    }
+
+    public void HideInGameUi()
+    {
+        InGameUi.SafeSetActive(false);
     }
 
     public void LoadCurrentScene()
@@ -169,11 +182,13 @@ public class GameController : MonoBehaviour
     {
         HighScoreEntryUi.SafeSetActive(false);
         GameOverUi.SafeSetActive(true);
+        InGameUi.SafeSetActive(false);
     }
 
     public void InitiateGameOver()
     {
         UnloadLevel();
+        InGameUi.SafeSetActive(false);
 
         int gameScore = GameDataHolder.Current.GameData.GetPlayerScore();
 
