@@ -194,10 +194,13 @@ public class PlayerController : MonoBehaviour
             AnimatorController.SetBool("IsLanding", false);
         }
 
-        if (OurRb.velocity.x < 0)
-            OurSprite.transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
-        else if (OurRb.velocity.x > 0)
-            OurSprite.transform.rotation = Quaternion.identity;
+        if(!isOnGround) 
+        {
+            if (OurRb.velocity.x < 0)
+                OurSprite.transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+            else if (OurRb.velocity.x > 0)
+                OurSprite.transform.rotation = Quaternion.identity;
+        }
 
         var pointerPos = Pointer.current.position.ReadValue();
         Vector3 wposition = Camera.main.ScreenToWorldPoint(pointerPos);
