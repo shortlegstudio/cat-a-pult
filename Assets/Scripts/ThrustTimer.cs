@@ -4,6 +4,7 @@ using UnityEngine;
 public class ThrustTimer : MonoBehaviour
 {
     public float ThrustInterval = 3;
+    public float countdownSpeed = 1;
 
     [SerializeField] private TextMeshProUGUI VisualCounter;
     public LevelController LevelController;
@@ -34,18 +35,19 @@ public class ThrustTimer : MonoBehaviour
         }
 
         float elapsedTime = Time.time - LastThrustTime;
+        float currentCount = ThrustInterval - (int)(elapsedTime * countdownSpeed);
         
         if ( VisualCounter != null )
         {
-            VisualCounter.text = (ThrustInterval - (int)elapsedTime).ToString();
+            VisualCounter.text = currentCount.ToString();
         }
 
-        if(lastTime != ThrustInterval - (int)elapsedTime) {
-            lastTime = ThrustInterval - (int)elapsedTime;
+        if(lastTime != currentCount) {
+            lastTime = currentCount;
             AudioController.PlaySound(Sounds.Countdown);
         }
 
-        if ( elapsedTime >= ThrustInterval )
+        if ( currentCount <= 0 )
         {
             AudioController.PlaySound(Sounds.CountdownFinish);
             SignalForThrust();
