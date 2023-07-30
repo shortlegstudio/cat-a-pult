@@ -6929,6 +6929,8 @@ MonoBehaviour:
   YVelocityMax: 2000
   NavRing: {fileID: 7026060426495158458}
   Arrow: {fileID: 0}
+  JumpEffect: {fileID: 0}
+  BoingEffect: {fileID: 0}
   AnimatorController: {fileID: 0}
   CatSplosionSpatProto: {fileID: 4472823966551516173, guid: b31941d5a738cb547af03e4172416630, type: 3}
   groundCollider: {fileID: 0}
@@ -7127,7 +7129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5544124141110763997, guid: e62b6e9425a8f3c49841933886625094, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.2
+      value: 26.84
       objectReference: {fileID: 0}
     - target: {fileID: 5544124141110763997, guid: e62b6e9425a8f3c49841933886625094, type: 3}
       propertyPath: m_LocalPosition.z
