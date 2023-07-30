@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 4472823966551516175}
   - component: {fileID: 4472823966551516174}
   - component: {fileID: 3096786362583433035}
-  - component: {fileID: 2176619764961060223}
-  - component: {fileID: 6580593539585968049}
+  - component: {fileID: 8574402138773676717}
   m_Layer: 0
-  m_Name: CatSplosion-Splat
+  m_Name: PowerUpPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,19 +123,7 @@ MonoBehaviour:
     min: 1
     max: 1
   randomBeforeLifetime: 0
---- !u!114 &2176619764961060223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4472823966551516173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f5816e20e8e61d499f2956ca5f5218c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6580593539585968049
+--- !u!114 &8574402138773676717
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,14 +138,14 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1679925921
-      Data2: 1140831877
-      Data3: -1444235363
-      Data4: 408826145
-    Path: event:/Sounds/Death
+      Data1: -975174115
+      Data2: 1136018857
+      Data3: 1123386021
+      Data4: 1480895501
+    Path: event:/Sounds/CollectPowerup
   Event: 
   PlayEvent: 1
-  StopEvent: 2
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0

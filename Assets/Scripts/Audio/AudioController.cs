@@ -27,6 +27,10 @@ public class AudioController : MonoBehaviour
     private Bus effectsBus;
     private Bus masterBus;
 
+    public float MusicVolume = 1f;
+    public float EffectVolume = 1f;
+
+
 
     static Dictionary<Sounds, string> soundEvents = new Dictionary<Sounds, string>();
 
@@ -34,6 +38,9 @@ public class AudioController : MonoBehaviour
         soundEvents.Clear();
         soundEvents.Add(Sounds.Countdown, "event:/Sounds/Countdown");
         soundEvents.Add(Sounds.CountdownFinish, "event:/Sounds/Launch");
+        soundEvents.Add(Sounds.Landing, "event:/Sounds/Landing");
+        soundEvents.Add(Sounds.ClickForward, "event:/UI/ClickForward");
+        soundEvents.Add(Sounds.ClickBack, "event:/UI/ClickBack");
     }
 
     void Awake()
@@ -42,60 +49,20 @@ public class AudioController : MonoBehaviour
         masterBus = RuntimeManager.GetBus("bus:/");
         musicBus = RuntimeManager.GetBus("bus:/Music");
         effectsBus = RuntimeManager.GetBus("bus:/Effects");
+        musicBus.setVolume(MusicVolume);
+        effectsBus.setVolume(EffectVolume);
 
         Current = this;
     }
 
-    public static float MusicVolume
+    public void PlayClick()
     {
-        get
-        {
-            float v;
-            Current.musicBus.getVolume(out v);
-            return v;
-        }
-        set
-        {
-            Current.musicBus.setVolume(value);
-        }
+        PlaySound(Sounds.ClickForward);
     }
 
-    public static float EffectVolume
+    public void PlayClickBack()
     {
-        get
-        {
-            float v;
-            Current.effectsBus.getVolume(out v);
-            return v;
-        }
-        set
-        {
-            Current.effectsBus.setVolume(value);
-        }
-    }
-
-    public static float OverallVolume{
-        get{
-            float v;
-            Current.masterBus.getVolume(out v);
-            return v;
-        }
-        set
-        {
-            Current.masterBus.setVolume(value);
-        }
-    }
-
-    public static bool MuteAllVolume
-    {
-        get
-        {
-            return RuntimeManager.IsMuted;
-        }
-        set
-        {
-            RuntimeManager.MuteAllEvents(value);
-        }
+        PlaySound(Sounds.ClickBack);
     }
 
     public static void PlaySound(Sounds sound)

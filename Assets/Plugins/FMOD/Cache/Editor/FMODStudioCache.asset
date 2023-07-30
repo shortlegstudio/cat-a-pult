@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/Audio/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638262348156261485
+  lastModified: 638263231086448787
   FileSizes:
   - Name: 
-    Value: 1218
+    Value: 1382
   Exists: 1
 --- !u!114 &-8393174023880153497
 MonoBehaviour:
@@ -46,7 +46,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 6542
 --- !u!114 &-7775013518669468141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,6 +74,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 135026
+--- !u!114 &-5333578588334628093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sounds/Boing
+  m_EditorClassIdentifier: 
+  Path: event:/Sounds/Boing
+  Guid:
+    Data1: 369601595
+    Data2: 1218054181
+    Data3: 878834825
+    Data4: 637359835
+  Banks:
+  - {fileID: 5557667111846311139}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2178
 --- !u!114 &-3081594609480294384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +127,34 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 2200
+--- !u!114 &-1073650588858222099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/ClickForward
+  m_EditorClassIdentifier: 
+  Path: event:/UI/ClickForward
+  Guid:
+    Data1: -1967864633
+    Data2: 1232216781
+    Data3: 1541032123
+    Data4: 275383417
+  Banks:
+  - {fileID: 5557667111846311139}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 321
 --- !u!114 &-548543093705749755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,13 +207,44 @@ MonoBehaviour:
   - {fileID: -8393174023880153497}
   - {fileID: 1032571064092464516}
   - {fileID: 4999345348481179037}
+  - {fileID: 5002534597044526028}
+  - {fileID: 184416819257564824}
+  - {fileID: -1073650588858222099}
+  - {fileID: -5333578588334628093}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5557667111846311139}
   StringsBanks:
   - {fileID: -8740300820418816065}
-  cacheTime: 638262348156261485
+  cacheTime: 638263231086448787
   cacheVersion: 131605
+--- !u!114 &184416819257564824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/ClickBack
+  m_EditorClassIdentifier: 
+  Path: event:/UI/ClickBack
+  Guid:
+    Data1: 1868314442
+    Data2: 1197689464
+    Data3: -1555496261
+    Data4: 952096220
+  Banks:
+  - {fileID: 5557667111846311139}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 366
 --- !u!114 &996787013798029247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +298,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 2178
 --- !u!114 &1732364836400866149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +353,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5214
+--- !u!114 &5002534597044526028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sounds/Jump
+  m_EditorClassIdentifier: 
+  Path: event:/Sounds/Jump
+  Guid:
+    Data1: -2063283809
+    Data2: 1123131826
+    Data3: -1265122643
+    Data4: 88004458
+  Banks:
+  - {fileID: 5557667111846311139}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2178
 --- !u!114 &5557667111846311139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +395,7 @@ MonoBehaviour:
   Path: Assets/Audio/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638262348156251480
+  lastModified: 638263231086433726
   FileSizes: []
   Exists: 1
 --- !u!114 &9028156608620616194
@@ -312,4 +424,4 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 2178
