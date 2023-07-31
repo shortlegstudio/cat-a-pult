@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9111421195187647859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sounds/BowlingPinsInSpace
+  m_EditorClassIdentifier: 
+  Path: event:/Sounds/BowlingPinsInSpace
+  Guid:
+    Data1: 819360302
+    Data2: 1190562068
+    Data3: 474228872
+    Data4: 882927196
+  Banks:
+  - {fileID: 5557667111846311139}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4360
 --- !u!114 &-8740300820418816065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +42,10 @@ MonoBehaviour:
   Path: Assets/Audio/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638263293920351616
+  lastModified: 638263350322335016
   FileSizes:
   - Name: 
-    Value: 1476
+    Value: 1534
   Exists: 1
 --- !u!114 &-8393174023880153497
 MonoBehaviour:
@@ -236,12 +263,13 @@ MonoBehaviour:
   - {fileID: -1073650588858222099}
   - {fileID: -5333578588334628093}
   - {fileID: 1371651587306828397}
+  - {fileID: -9111421195187647859}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5557667111846311139}
   StringsBanks:
   - {fileID: -8740300820418816065}
-  cacheTime: 638263293920351616
+  cacheTime: 638263350322335016
   cacheVersion: 131605
 --- !u!114 &184416819257564824
 MonoBehaviour:
@@ -448,7 +476,7 @@ MonoBehaviour:
   Path: Assets/Audio/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638263293920301603
+  lastModified: 638263350322325023
   FileSizes: []
   Exists: 1
 --- !u!114 &9028156608620616194
