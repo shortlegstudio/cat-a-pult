@@ -552,6 +552,7 @@ GameObject:
   - component: {fileID: 5544124141230530035}
   - component: {fileID: 2975371026839829209}
   - component: {fileID: 6081957117090703711}
+  - component: {fileID: 6218896672438292518}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -609,6 +610,8 @@ MonoBehaviour:
   beatsOnGround: 0
   beatsToLand: 0.15
   airMovementForce: 1250
+  powerupSound: {fileID: 6218896672438292518}
+  ThrustBuildupPitchFeedback: 2.5
   OurSprite: {fileID: 4817246427416643604}
   CurrentSpeed: 0
   isOnGround: 1
@@ -878,3 +881,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 17.108704, y: 8.667489}
   m_EdgeRadius: 0
+--- !u!114 &6218896672438292518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544124141110763995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1737969101
+      Data2: 1210205060
+      Data3: 135690640
+      Data4: 1801660942
+    Path: event:/Sounds/JumpPower
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params:
+  - Name: Power
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
