@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public GameObject GameOverUi;
     public GameObject InGameUi;
     public GameObject PregameUi;
+    public GameObject TitleAudioTrack;
     public GameObject HighScoreEntryUi;
     public ServerComs ServerCommunications;
     public GameDataHolder GameData;
@@ -92,6 +93,7 @@ public class GameController : MonoBehaviour
     public void ShowStartMenu()
     {
         UnloadLevel();
+        TitleAudioTrack.SafeSetActive(true);
         UiTitleScreen.SetActive(true);
         PregameUi.SafeSetActive(false);
         UiOptionsScreen.SafeSetActive(false);
@@ -131,6 +133,7 @@ public class GameController : MonoBehaviour
         GameData.GameData.GameStartTime = Time.time;
 
         LoadCurrentScene();
+        TitleAudioTrack.SafeSetActive(false);
         GameOverUi.SafeSetActive(false);
         HighScoreEntryUi.SafeSetActive(false);
         UiTitleScreen.SafeSetActive(false);
