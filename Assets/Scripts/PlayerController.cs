@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
     {
         if (GameDataHolder.Current.GameData.Health <= 0)
         {
+            OurRb.velocity = new Vector2(0, 0);
             if (GameDataHolder.Current.GameData.IsDead)
                 return;
 
@@ -217,6 +218,14 @@ public class PlayerController : MonoBehaviour
     void HandleMovement()
     {
 
+        var pointerPos = Pointer.current.position.ReadValue();
+        Vector3 wposition = Camera.main.ScreenToWorldPoint(pointerPos);
+        wposition.z = 0;
+
+        var dir = wposition - NavRing.transform.position;
+        var rot = Quaternion.LookRotation(Vector3.forward, dir);
+        NavRing.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.RotateTowards(NavRing.transform.up, dir, RotationSpeed * Time.deltaTime, 1));
+
         if (isOnGround)
         {
             AnimatorController.SetBool("IsJumping", false);
@@ -237,15 +246,13 @@ public class PlayerController : MonoBehaviour
                 Mathf.Clamp(OurRb.velocity.x, -XVelocityMax, XVelocityMax),
                 Mathf.Clamp(OurRb.velocity.y, -YVelocityMax, YVelocityMax)
             );
+        } else {
+            if (wposition.x < transform.position.x)
+                OurSprite.transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+            else 
+                OurSprite.transform.rotation = Quaternion.identity;
         }
 
-        var pointerPos = Pointer.current.position.ReadValue();
-        Vector3 wposition = Camera.main.ScreenToWorldPoint(pointerPos);
-        wposition.z = 0;
-
-        var dir = wposition - NavRing.transform.position;
-        var rot = Quaternion.LookRotation(Vector3.forward, dir);
-        NavRing.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.RotateTowards(NavRing.transform.up, dir, RotationSpeed * Time.deltaTime, 1));
 
         if (CurrentSpeed != 0)
         {
