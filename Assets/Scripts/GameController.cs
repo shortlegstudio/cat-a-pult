@@ -77,25 +77,8 @@ public class GameController : MonoBehaviour
 
     }
 
-    bool HaveStartedTitleTrack = false;
-
     private void Update()
     {
-        if (!HaveStartedTitleTrack)
-        {
-
-            try
-            {
-                TitleAudioTrack.SafeSetActive(true);
-                var emitter = TitleAudioTrack.GetComponent<StudioEventEmitter>();
-                emitter.Play();
-                HaveStartedTitleTrack = true;
-            }
-            catch (Exception)
-            {
-            }        
-        }
-
         GlobalSpawnQueue.SpawnQueueItems();
     }
 
