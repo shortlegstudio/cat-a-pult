@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public GameObject UiAboutScreen;
     public GameObject GameOverUi;
     public GameObject InGameUi;
+    public GameObject PregameUi;
     public GameObject HighScoreEntryUi;
     public ServerComs ServerCommunications;
     public GameDataHolder GameData;
@@ -92,6 +93,7 @@ public class GameController : MonoBehaviour
     {
         UnloadLevel();
         UiTitleScreen.SetActive(true);
+        PregameUi.SafeSetActive(false);
         UiOptionsScreen.SafeSetActive(false);
         UiAboutScreen.SafeSetActive(false);
         GameOverUi.SafeSetActive(false);
@@ -135,6 +137,7 @@ public class GameController : MonoBehaviour
         UiAboutScreen.SafeSetActive(false);
         UiOptionsScreen.SafeSetActive(false);
         InGameUi.SafeSetActive(false);
+        PregameUi.SafeSetActive(false);
     }
 
     public void ShowInGameUi()
@@ -205,8 +208,19 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void ShowPreGameInstructions()
+    {
+        UiTitleScreen.SetActive(false);
+        PregameUi.SafeSetActive(true);
+    }
+
     public void OpenPlantTherapySteam()
     {
         Application.OpenURL("https://store.steampowered.com/app/2505120/Plant_Therapy/");
+    }
+
+    public void OpenPlantTherapyItch()
+    {
+        Application.OpenURL("https://short-leg-studio.itch.io/plant-therapy");
     }
 }
