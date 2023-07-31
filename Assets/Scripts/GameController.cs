@@ -47,6 +47,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         GameConstants.Init();
+        TitleAudioTrack.SafeSetActive(true);
 
         // Present for game development ease. The controller scene is mandatory. In the production build, the
         // controller scene will be the initial scene and drive the whole thing. In development mode, though,
@@ -76,7 +77,6 @@ public class GameController : MonoBehaviour
     }
 
 
-    bool needToPlayMusic = true;
     private void Update()
     {
         GlobalSpawnQueue.SpawnQueueItems();
