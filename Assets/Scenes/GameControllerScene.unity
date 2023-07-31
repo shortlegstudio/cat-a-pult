@@ -7457,7 +7457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Height Reached: 666'
+  m_text: 'YOUR SCORE: 9,664'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 71ed539fb6da46149861e80efc7f1a9c, type: 2}
   m_sharedMaterial: {fileID: -9040700987900126731, guid: 71ed539fb6da46149861e80efc7f1a9c, type: 2}
@@ -7484,8 +7484,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

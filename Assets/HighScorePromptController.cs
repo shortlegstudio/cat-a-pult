@@ -26,7 +26,7 @@ public class HighScorePromptController : MonoBehaviour
         var theirScore = new GameScore
         {
             playerId = GameDataHolder.Current.GameData.InstanceId,
-            playerName = name,
+            playerName = name?.ToUpper() ?? "---",
             score = score
         };
 
